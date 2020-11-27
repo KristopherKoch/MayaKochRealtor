@@ -1,1 +1,5 @@
 ﻿https://www.thepetzketeam.com/
+
+
+default header background size:
+1900x1250

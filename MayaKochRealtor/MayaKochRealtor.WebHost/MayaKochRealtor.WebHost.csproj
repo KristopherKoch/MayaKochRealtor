@@ -12,6 +12,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="wwwroot\assets\img\maya\MayaKochRealtor_Grass.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\assets\img\maya\MayaKochRealtor_Leaves.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="wwwroot\assets\mail\contact_me.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
