@@ -21,6 +21,9 @@
     <Content Update="wwwroot\assets\img\maya\MayaKochRealtor_Leaves.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Update="wwwroot\assets\img\maya\MayaKoch_backpacking.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="wwwroot\assets\img\maya\MayaKoch_Waterfall_Dark.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
