@@ -2443,12 +2443,12 @@ fieldset:disabled a.btn {
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: #fec810;
+  background-color: #E8C0FE;
   border-color: #fec503;
 }
 .btn-primary:focus, .btn-primary.focus {
   color: #fff;
-  background-color: #fec810;
+  background-color: #E8C0FE;
   border-color: #fec503;
   box-shadow: 0 0 0 0.2rem rgba(254, 216, 84, 0.5);
 }
@@ -2563,12 +2563,12 @@ fieldset:disabled a.btn {
 }
 .btn-warning:hover {
   color: #fff;
-  background-color: #fec810;
+  background-color: #E8C0FE;
   border-color: #fec503;
 }
 .btn-warning:focus, .btn-warning.focus {
   color: #fff;
-  background-color: #fec810;
+  background-color: #E8C0FE;
   border-color: #fec503;
   box-shadow: 0 0 0 0.2rem rgba(254, 216, 84, 0.5);
 }
@@ -10424,13 +10424,8 @@ header.masthead .masthead-heading {
 }
 
 section#contact {
-  background-color: #212529;
-  background-image: url("../assets/img/map-image.png");
-  background-repeat: no-repeat;
-  background-position: center;
 }
 section#contact .section-heading {
-  color: #fff;
 }
 section#contact form#contactForm .form-group {
   margin-bottom: 1.5rem;

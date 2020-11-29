@@ -7,13 +7,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="211mm"
+   width="193mm"
    height="25mm"
-   viewBox="0 0 211 25"
+   viewBox="0 0 193 25"
    version="1.1"
    id="svg8"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
-   sodipodi:docname="MayaKoch_Realtor_Logo.svg">
+   sodipodi:docname="MayaKoch_Realty_Logo.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -33,7 +33,7 @@
      inkscape:window-width="1416"
      inkscape:window-height="1040"
      inkscape:window-x="105"
-     inkscape:window-y="17"
+     inkscape:window-y="0"
      inkscape:window-maximized="0" />
   <metadata
      id="metadata5">
@@ -61,18 +61,7 @@
          id="tspan10"
          x="0.68039709"
          y="18.142784"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5778px;font-family:'Palatino Linotype';-inkscape-font-specification:'Palatino Linotype';fill:#dca2fc;fill-opacity:1;stroke-width:0.264583">Maya Koch Realtor</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#dca2fc;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="200.4778"
-       y="8.6933947"
-       id="text16"><tspan
-         sodipodi:role="line"
-         id="tspan14"
-         x="200.4778"
-         y="8.6933947"
-         style="fill:#dca2fc;fill-opacity:1;stroke-width:0.264583">®</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5778px;font-family:'Palatino Linotype';-inkscape-font-specification:'Palatino Linotype';fill:#dca2fc;fill-opacity:1;stroke-width:0.264583">Maya Koch Realty</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
