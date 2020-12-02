@@ -24,7 +24,7 @@
     <Content Update="wwwroot\assets\img\maya\MayaKochRealtor_Leaves.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\assets\img\maya\MayaKoch_backpacking.png">
+    <Content Update="wwwroot\assets\img\maya\MayaKoch_backpacking.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\assets\img\team\VivianChan_Realtor.jpeg">
