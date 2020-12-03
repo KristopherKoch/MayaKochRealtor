@@ -29,6 +29,7 @@ namespace MayaKochRealtor.WebHost
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            System.Net.ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
