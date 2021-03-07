@@ -8,7 +8,6 @@ default header background size:
 
 
 Features that the page should definitely have:
-Facebook messenger chat.
 
 Link to SilverCreek page. Integrated search functionality?
 
