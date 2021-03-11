@@ -28,6 +28,12 @@ namespace MayaKochRealtor.WebHost.Controllers
             return PartialView();
         }
 
+        public IActionResult Test()
+        {
+            var request = Request;
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
