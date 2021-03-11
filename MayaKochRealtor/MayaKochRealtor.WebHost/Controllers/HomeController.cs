@@ -23,6 +23,11 @@ namespace MayaKochRealtor.WebHost.Controllers
             return View();
         }
 
+        public IActionResult CopiedSilverCreek()
+        {
+            return PartialView();
+        }
+
         public IActionResult Privacy()
         {
             return View();

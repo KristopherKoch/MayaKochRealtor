@@ -1,0 +1,1153 @@
+﻿<!DOCTYPE html>
+<html class="" lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VgEAWVdACQYHV1lRBgA=",licenseKey:"7bce71ab19",applicationID:"15738311"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{c.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(27),c={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(c.console=!0,o.indexOf("dev")!==-1&&(c.dev=!0),o.indexOf("nr_dev")!==-1&&(c.nrDev=!0))}catch(s){}c.nrDev&&i.on("internal-error",function(t){r(t.stack)}),c.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),c.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(c,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,c){try{l?l-=1:o(c||new UncaughtException(t,e,n),!0)}catch(u){try{i("ierr",[u,s.now(),!0])}catch(d){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t,e){var n=e?null:s.now();i("err",[t,n])}var i=t("handle"),a=t(28),c=t("ee"),s=t("loader"),u=t("gos"),f=window.onerror,d=!1,p="nr@seenError",l=0;s.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(13),t(12),"addEventListener"in window&&t(6),s.xhrWrappable&&t(14),d=!0)}c.on("fn-start",function(t,e,n){d&&(l+=1)}),c.on("fn-err",function(t,e,n){d&&!n[p]&&(u(n,p,function(){return!0}),this.thrown=!0,o(n))}),c.on("fn-end",function(){d&&!this.thrown&&l>0&&(l-=1)}),c.on("internal-error",function(t){i("ierr",[t,s.now(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(){L++,T=g.hash,this[f]=y.now()}function o(){L--,g.hash!==T&&i(0,!0);var t=y.now();this[h]=~~this[h]+t-this[f],this[d]=t}function i(t,e){E.emit("newURL",[""+g,e])}function a(t,e){t.on(e,function(){this[e]=y.now()})}var c="-start",s="-end",u="-body",f="fn"+c,d="fn"+s,p="cb"+c,l="cb"+s,h="jsTime",m="fetch",v="addEventListener",w=window,g=w.location,y=t("loader");if(w[v]&&y.xhrWrappable){var x=t(10),b=t(11),E=t(8),R=t(6),O=t(13),N=t(7),P=t(14),M=t(9),S=t("ee"),C=S.get("tracer");t(16),y.features.spa=!0;var T,L=0;S.on(f,r),b.on(p,r),M.on(p,r),S.on(d,o),b.on(l,o),M.on(l,o),S.buffer([f,d,"xhr-done","xhr-resolved"]),R.buffer([f]),O.buffer(["setTimeout"+s,"clearTimeout"+c,f]),P.buffer([f,"new-xhr","send-xhr"+c]),N.buffer([m+c,m+"-done",m+u+c,m+u+s]),E.buffer(["newURL"]),x.buffer([f]),b.buffer(["propagate",p,l,"executor-err","resolve"+c]),C.buffer([f,"no-"+f]),M.buffer(["new-jsonp","cb-start","jsonp-error","jsonp-end"]),a(P,"send-xhr"+c),a(S,"xhr-resolved"),a(S,"xhr-done"),a(N,m+c),a(N,m+"-done"),a(M,"new-jsonp"),a(M,"jsonp-end"),a(M,"cb-start"),E.on("pushState-end",i),E.on("replaceState-end",i),w[v]("hashchange",i,!0),w[v]("load",i,!0),w[v]("popstate",function(){i(0,L>1)},!0)}},{}],5:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(13),c=t(12),s="learResourceTimings",u="addEventListener",f="resourcetimingbufferfull",d="bstResource",p="resource",l="-start",h="-end",m="fn"+l,v="fn"+h,w="bstTimer",g="pushState",y=t("loader");y.features.stn=!0,t(8),"addEventListener"in window&&t(6);var x=NREUM.o.EV;o.on(m,function(t,e){var n=t[0];n instanceof x&&(this.bstStart=y.now())}),o.on(v,function(t,e){var n=t[0];n instanceof x&&i("bst",[n,e,this.bstStart,y.now()])}),a.on(m,function(t,e,n){this.bstStart=y.now(),this.bstType=n}),a.on(v,function(t,e){i(w,[e,this.bstStart,y.now(),this.bstType])}),c.on(m,function(){this.bstStart=y.now()}),c.on(v,function(t,e){i(w,[e,this.bstStart,y.now(),"requestAnimationFrame"])}),o.on(g+l,function(t){this.time=y.now(),this.startPath=location.pathname+location.hash}),o.on(g+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),u in window.performance&&(window.performance["c"+s]?window.performance[u](f,function(t){i(d,[window.performance.getEntriesByType(p)]),window.performance["c"+s]()},!1):window.performance[u]("webkit"+f,function(t){i(d,[window.performance.getEntriesByType(p)]),window.performance["webkitC"+s]()},!1)),document[u]("scroll",r,{passive:!0}),document[u]("keypress",r,!1),document[u]("click",r,!1)}},{}],6:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(f);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){c.inPlace(t,[f,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),c=t("wrap-function")(a,!0),s=t("gos"),u=XMLHttpRequest,f="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(u.prototype)):u.prototype.hasOwnProperty(f)&&(o(window),o(u.prototype)),a.on(f+"-start",function(t,e){var n=t[1],r=s(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?c(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],7:[function(t,e,n){function r(t,e,n){var r=t[e];"function"==typeof r&&(t[e]=function(){var t=i(arguments),e={};o.emit(n+"before-start",[t],e);var a;e[m]&&e[m].dt&&(a=e[m].dt);var c=r.apply(this,t);return o.emit(n+"start",[t,a],c),c.then(function(t){return o.emit(n+"end",[null,t],c),t},function(t){throw o.emit(n+"end",[t],c),t})})}var o=t("ee").get("fetch"),i=t(28),a=t(27);e.exports=o;var c=window,s="fetch-",u=s+"body-",f=["arrayBuffer","blob","json","text","formData"],d=c.Request,p=c.Response,l=c.fetch,h="prototype",m="nr@context";d&&p&&l&&(a(f,function(t,e){r(d[h],e,u),r(p[h],e,u)}),r(c,"fetch",s),o.on(s+"end",function(t,e){var n=this;if(e){var r=e.headers.get("content-length");null!==r&&(n.rxSize=r),o.emit(s+"done",[null,e],n)}else o.emit(s+"done",[t],n)}))},{}],8:[function(t,e,n){var r=t("ee").get("history"),o=t("wrap-function")(r);e.exports=r;var i=window.history&&window.history.constructor&&window.history.constructor.prototype,a=window.history;i&&i.pushState&&i.replaceState&&(a=i),o.inPlace(a,["pushState","replaceState"],"-")},{}],9:[function(t,e,n){function r(t){function e(){s.emit("jsonp-end",[],p),t.removeEventListener("load",e,!1),t.removeEventListener("error",n,!1)}function n(){s.emit("jsonp-error",[],p),s.emit("jsonp-end",[],p),t.removeEventListener("load",e,!1),t.removeEventListener("error",n,!1)}var r=t&&"string"==typeof t.nodeName&&"script"===t.nodeName.toLowerCase();if(r){var o="function"==typeof t.addEventListener;if(o){var a=i(t.src);if(a){var f=c(a),d="function"==typeof f.parent[f.key];if(d){var p={};u.inPlace(f.parent,[f.key],"cb-",p),t.addEventListener("load",e,!1),t.addEventListener("error",n,!1),s.emit("new-jsonp",[t.src],p)}}}}}function o(){return"addEventListener"in window}function i(t){var e=t.match(f);return e?e[1]:null}function a(t,e){var n=t.match(p),r=n[1],o=n[3];return o?a(o,e[r]):e[r]}function c(t){var e=t.match(d);return e&&e.length>=3?{key:e[2],parent:a(e[1],window)}:{key:t,parent:window}}var s=t("ee").get("jsonp"),u=t("wrap-function")(s);if(e.exports=s,o()){var f=/[?&](?:callback|cb)=([^&#]+)/,d=/(.*)\.([^.]+)/,p=/^(\w+)(\.|$)(.*)$/,l=["appendChild","insertBefore","replaceChild"];Node&&Node.prototype&&Node.prototype.appendChild?u.inPlace(Node.prototype,l,"dom-"):(u.inPlace(HTMLElement.prototype,l,"dom-"),u.inPlace(HTMLHeadElement.prototype,l,"dom-"),u.inPlace(HTMLBodyElement.prototype,l,"dom-")),s.on("dom-start",function(t){r(t[0])})}},{}],10:[function(t,e,n){var r=t("ee").get("mutation"),o=t("wrap-function")(r),i=NREUM.o.MO;e.exports=r,i&&(window.MutationObserver=function(t){return this instanceof i?new i(o(t,"fn-")):i.apply(this,arguments)},MutationObserver.prototype=i.prototype)},{}],11:[function(t,e,n){function r(t){var e=i.context(),n=c(t,"executor-",e,null,!1),r=new u(n);return i.context(r).getCtx=function(){return e},r}var o=t("wrap-function"),i=t("ee").get("promise"),a=t("ee").getOrSetContext,c=o(i),s=t(27),u=NREUM.o.PR;e.exports=i,u&&(window.Promise=r,["all","race"].forEach(function(t){var e=u[t];u[t]=function(n){function r(t){return function(){i.emit("propagate",[null,!o],a,!1,!1),o=o||!t}}var o=!1;s(n,function(e,n){Promise.resolve(n).then(r("all"===t),r(!1))});var a=e.apply(u,arguments),c=u.resolve(a);return c}}),["resolve","reject"].forEach(function(t){var e=u[t];u[t]=function(t){var n=e.apply(u,arguments);return t!==n&&i.emit("propagate",[t,!0],n,!1,!1),n}}),u.prototype["catch"]=function(t){return this.then(null,t)},u.prototype=Object.create(u.prototype,{constructor:{value:r}}),s(Object.getOwnPropertyNames(u),function(t,e){try{r[e]=u[e]}catch(n){}}),o.wrapInPlace(u.prototype,"then",function(t){return function(){var e=this,n=o.argsToArray.apply(this,arguments),r=a(e);r.promise=e,n[0]=c(n[0],"cb-",r,null,!1),n[1]=c(n[1],"cb-",r,null,!1);var s=t.apply(this,n);return r.nextPromise=s,i.emit("propagate",[e,!0],s,!1,!1),s}}),i.on("executor-start",function(t){t[0]=c(t[0],"resolve-",this,null,!1),t[1]=c(t[1],"resolve-",this,null,!1)}),i.on("executor-err",function(t,e,n){t[1](n)}),i.on("cb-end",function(t,e,n){i.emit("propagate",[n,!0],this.nextPromise,!1,!1)}),i.on("propagate",function(t,e,n){this.getCtx&&!e||(this.getCtx=function(){if(t instanceof Promise)var e=i.context(t);return e&&e.getCtx?e.getCtx():this})}),r.toString=function(){return""+u})},{}],12:[function(t,e,n){var r=t("ee").get("raf"),o=t("wrap-function")(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],13:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t("wrap-function")(i),c="setTimeout",s="setInterval",u="clearTimeout",f="-start",d="-";e.exports=i,a.inPlace(window,[c,"setImmediate"],c+d),a.inPlace(window,[s],s+d),a.inPlace(window,[u,"clearImmediate"],u+d),i.on(s+f,r),i.on(c+f,o)},{}],14:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",c)}function o(){var t=this,e=f.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,f.emit("xhr-resolved",[],t)),d.inPlace(t,g,"fn-",c)}function i(t){y.push(t),h&&(b?b.then(a):v?v(a):(E=-E,R.data=E))}function a(){for(var t=0;t<y.length;t++)r([],y[t]);y.length&&(y=[])}function c(t,e){return e}function s(t,e){for(var n in t)e[n]=t[n];return e}t(6);var u=t("ee"),f=u.get("xhr"),d=t("wrap-function")(f),p=NREUM.o,l=p.XHR,h=p.MO,m=p.PR,v=p.SI,w="readystatechange",g=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],y=[];e.exports=f;var x=window.XMLHttpRequest=function(t){var e=new l(t);try{f.emit("new-xhr",[e],e),e.addEventListener(w,o,!1)}catch(n){try{f.emit("internal-error",[n])}catch(r){}}return e};if(s(l,x),x.prototype=l.prototype,d.inPlace(x.prototype,["open","send"],"-xhr-",c),f.on("send-xhr-start",function(t,e){r(t,e),i(e)}),f.on("open-xhr-start",r),h){var b=m&&m.resolve();if(!v&&!m){var E=1,R=document.createTextNode(E);new h(a).observe(R,{characterData:!0})}}else u.on("fn-end",function(t){t[0]&&t[0].type===w||a()})},{}],15:[function(t,e,n){function r(t){if(!c(t))return null;var e=window.NREUM;if(!e.loader_config)return null;var n=(e.loader_config.accountID||"").toString()||null,r=(e.loader_config.agentID||"").toString()||null,u=(e.loader_config.trustKey||"").toString()||null;if(!n||!r)return null;var h=l.generateSpanId(),m=l.generateTraceId(),v=Date.now(),w={spanId:h,traceId:m,timestamp:v};return(t.sameOrigin||s(t)&&p())&&(w.traceContextParentHeader=o(h,m),w.traceContextStateHeader=i(h,v,n,r,u)),(t.sameOrigin&&!f()||!t.sameOrigin&&s(t)&&d())&&(w.newrelicHeader=a(h,m,v,n,r,u)),w}function o(t,e){return"00-"+e+"-"+t+"-01"}function i(t,e,n,r,o){var i=0,a="",c=1,s="",u="";return o+"@@nr="+i+"-"+c+"-"+n+"-"+r+"-"+t+"-"+a+"-"+s+"-"+u+"-"+e}function a(t,e,n,r,o,i){var a="btoa"in window&&"function"==typeof window.btoa;if(!a)return null;var c={v:[0,1],d:{ty:"Browser",ac:r,ap:o,id:t,tr:e,ti:n}};return i&&r!==i&&(c.d.tk=i),btoa(JSON.stringify(c))}function c(t){return u()&&s(t)}function s(t){var e=!1,n={};if("init"in NREUM&&"distributed_tracing"in NREUM.init&&(n=NREUM.init.distributed_tracing),t.sameOrigin)e=!0;else if(n.allowed_origins instanceof Array)for(var r=0;r<n.allowed_origins.length;r++){var o=h(n.allowed_origins[r]);if(t.hostname===o.hostname&&t.protocol===o.protocol&&t.port===o.port){e=!0;break}}return e}function u(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.enabled}function f(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.exclude_newrelic_header}function d(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&NREUM.init.distributed_tracing.cors_use_newrelic_header!==!1}function p(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.cors_use_tracecontext_headers}var l=t(24),h=t(17);e.exports={generateTracePayload:r,shouldGenerateTrace:c}},{}],16:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<p;r++)t.removeEventListener(d[r],this.listener,!1);e.aborted||(n.duration=a.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==e.status&&(e.status=0):i(this,t),n.cbTime=this.cbTime,f.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime]))}}function o(t,e){var n=s(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.parsedOrigin=s(e),t.sameOrigin=t.parsedOrigin.sameOrigin}function i(t,e){t.params.status=e.status;var n=v(e,t.lastSize);if(n&&(t.metrics.rxSize=n),t.sameOrigin){var r=e.getResponseHeader("X-NewRelic-App-Data");r&&(t.params.cat=r.split(", ").pop())}t.loadCaptureCalled=!0}var a=t("loader");if(a.xhrWrappable){var c=t("handle"),s=t(17),u=t(15).generateTracePayload,f=t("ee"),d=["load","error","abort","timeout"],p=d.length,l=t("id"),h=t(21),m=t(20),v=t(18),w=window.XMLHttpRequest;a.features.xhr=!0,t(14),t(7),f.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,e.loadCaptureCalled=!1,t.addEventListener("load",function(n){i(e,t)},!1),h&&(h>34||h<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},o(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid);var n=u(this.parsedOrigin);if(n){var r=!1;n.newrelicHeader&&(e.setRequestHeader("newrelic",n.newrelicHeader),r=!0),n.traceContextParentHeader&&(e.setRequestHeader("traceparent",n.traceContextParentHeader),n.traceContextStateHeader&&e.setRequestHeader("tracestate",n.traceContextStateHeader),r=!0),r&&(this.dt=n)}}),f.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=m(r);i&&(n.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"!==t.type||o.loadCaptureCalled||(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{f.emit("internal-error",[n])}catch(r){}}};for(var c=0;c<p;c++)e.addEventListener(d[c],this.listener,!1)}),f.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),f.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,e){e instanceof w&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],e)}),f.on("removeEventListener-end",function(t,e){e instanceof w&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],e)}),f.on("fn-start",function(t,e,n){e instanceof w&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,e){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,e],e)}),f.on("fetch-before-start",function(t){function e(t,e){var n=!1;return e.newrelicHeader&&(t.set("newrelic",e.newrelicHeader),n=!0),e.traceContextParentHeader&&(t.set("traceparent",e.traceContextParentHeader),e.traceContextStateHeader&&t.set("tracestate",e.traceContextStateHeader),n=!0),n}var n,r=t[1]||{};"string"==typeof t[0]?n=t[0]:t[0]&&t[0].url?n=t[0].url:window.URL&&t[0]&&t[0]instanceof URL&&(n=t[0].href),n&&(this.parsedOrigin=s(n),this.sameOrigin=this.parsedOrigin.sameOrigin);var o=u(this.parsedOrigin);if(o&&(o.newrelicHeader||o.traceContextParentHeader))if("string"==typeof t[0]||window.URL&&t[0]&&t[0]instanceof URL){var i={};for(var a in r)i[a]=r[a];i.headers=new Headers(r.headers||{}),e(i.headers,o)&&(this.dt=o),t.length>1?t[1]=i:t.push(i)}else t[0]&&t[0].headers&&e(t[0].headers,o)&&(this.dt=o)})}},{}],17:[function(t,e,n){var r={};e.exports=function(t){if(t in r)return r[t];var e=document.createElement("a"),n=window.location,o={};e.href=t,o.port=e.port;var i=e.href.split("://");!o.port&&i[1]&&(o.port=i[1].split("/")[0].split("@@").pop().split(":")[1]),o.port&&"0"!==o.port||(o.port="https"===i[0]?"443":"80"),o.hostname=e.hostname||n.hostname,o.pathname=e.pathname,o.protocol=i[0],"/"!==o.pathname.charAt(0)&&(o.pathname="/"+o.pathname);var a=!e.protocol||":"===e.protocol||e.protocol===n.protocol,c=e.hostname===document.domain&&e.port===n.port;return o.sameOrigin=a&&(!e.hostname||c),"/"===o.pathname&&(r[t]=o),o}},{}],18:[function(t,e,n){function r(t,e){var n=t.responseType;return"json"===n&&null!==e?e:"arraybuffer"===n||"blob"===n||"json"===n?o(t.response):"text"===n||""===n||void 0===n?o(t.responseText):void 0}var o=t(20);e.exports=r},{}],19:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[u.now()].concat(c(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(27),c=t(28),s=t("ee").get("tracer"),u=t("loader"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(t,e){f[e]=o(p+e,!0,"api")}),f.addPageAction=o(p+"addPageAction",!0),f.setCurrentRouteName=o(p+"routeName",!0),e.exports=newrelic,f.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(l+"tracer",[u.now(),t,n],r),function(){if(s.emit((o?"":"no-")+"fn-start",[u.now(),r,o],n),o)try{return e.apply(this,arguments)}catch(t){throw s.emit("fn-err",[arguments,this,t],n),t}finally{s.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){h[e]=o(l+e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),i("err",[t,u.now(),!1,e])}},{}],20:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],21:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],22:[function(t,e,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(i=Math.max((new Date).getTime(),i))-a}function o(){return i}var i=(new Date).getTime(),a=i,c=t(29);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=o},{}],23:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?d("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&d("timing",["fcp",Math.floor(t.startTime)])})}function o(t,e){var n=t.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function i(t){t.getEntries().forEach(function(t){t.hadRecentInput||d("cls",[t])})}function a(t){if(t instanceof h&&!v){var e=Math.round(t.timeStamp),n={type:t.type};e<=p.now()?n.fid=p.now()-e:e>p.offset&&e<=Date.now()?(e-=p.offset,n.fid=p.now()-e):e=p.now(),v=!0,d("timing",["fi",e,n])}}function c(t){d("pageHide",[p.now(),t])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var s,u,f,d=t("handle"),p=t("loader"),l=t(26),h=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){s=new PerformanceObserver(r);try{s.observe({entryTypes:["paint"]})}catch(m){}u=new PerformanceObserver(o);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(m){}f=new PerformanceObserver(i);try{f.observe({type:"layout-shift",buffered:!0})}catch(m){}}if("addEventListener"in document){var v=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(t){document.addEventListener(t,a,!1)})}l(c)}},{}],24:[function(t,e,n){function r(){function t(){return e?15&e[n++]:16*Math.random()|0}var e=null,n=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(e=r.getRandomValues(new Uint8Array(31)));for(var o,i="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",a="",c=0;c<i.length;c++)o=i[c],"x"===o?a+=t().toString(16):"y"===o?(o=3&t()|8,a+=o.toString(16)):a+=o;return a}function o(){return a(16)}function i(){return a(32)}function a(t){function e(){return n?15&n[r++]:16*Math.random()|0}var n=null,r=0,o=window.crypto||window.msCrypto;o&&o.getRandomValues&&Uint8Array&&(n=o.getRandomValues(new Uint8Array(31)));for(var i=[],a=0;a<t;a++)i.push(e().toString(16));return i.join("")}e.exports={generateUuid:r,generateSpanId:o,generateTraceId:i}},{}],25:[function(t,e,n){function r(t,e){if(!o)return!1;if(t!==o)return!1;if(!e)return!0;if(!i)return!1;for(var n=i.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,s=c.match(a);s&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(o="Safari",i=s[1])}e.exports={agent:o,version:i,match:r}},{}],26:[function(t,e,n){function r(t){function e(){t(a&&document[a]?document[a]:document[o]?"hidden":"visible")}"addEventListener"in document&&i&&document.addEventListener(i,e,!1)}e.exports=r;var o,i,a;"undefined"!=typeof document.hidden?(o="hidden",i="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(o="msHidden",i="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(o="webkitHidden",i="webkitvisibilitychange",a="webkitVisibilityState")},{}],27:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],28:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],29:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?u(t,s,a):a()}function n(n,r,o,i,a){if(a!==!1&&(a=!0),!l.aborted||i){t&&a&&t(n,r,o);for(var c=e(o),s=m(n),u=s.length,f=0;f<u;f++)s[f].apply(c,r);var p=d[y[n]];return p&&p.push([x,n,r,c]),c}}function i(t,e){g[t]=m(t).concat(e)}function h(t,e){var n=g[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return g[t]||[]}function v(t){return p[t]=p[t]||o(n)}function w(t,e){f(t,function(t,n){e=e||"feature",y[n]=e,e in d||(d[e]=[])})}var g={},y={},x={on:i,addEventListener:i,removeEventListener:h,emit:n,get:v,listeners:m,context:e,buffer:w,abort:c,aborted:!1};return x}function i(t){return u(t,s,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var s="nr@context",u=t("gos"),f=t(27),d={},p={},l=e.exports=o();e.exports.getOrSetContext=i,l.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!b++){var t=x.info=NREUM.info,e=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return u.abort();s(g,function(e,n){t[e]||(t[e]=n)});var n=a();c("mark",["onload",n+x.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+t.agent,e.parentNode.insertBefore(r,e)}}function o(){"complete"===p.readyState&&i()}function i(){c("mark",["domContent",a()+x.offset],null,"api")}var a=t(22),c=t("handle"),s=t(27),u=t("ee"),f=t(25),d=window,p=d.document,l="addEventListener",h="attachEvent",m=d.XMLHttpRequest,v=m&&m.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,g={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-spa-1198.min.js"},y=m&&v&&v[l]&&!/CriOS/.test(navigator.userAgent),x=e.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:y,userAgent:f};t(19),t(23),p[l]?(p[l]("DOMContentLoaded",i,!1),d[l]("load",r,!1)):(p[h]("onreadystatechange",o),d[h]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var b=0},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,s,u){function nrWrapper(){var i,a,f,p;try{a=this,i=d(arguments),f="function"==typeof r?r(i,a):r||{}}catch(l){o([l,"",[i,a,s],f],t)}c(n+"start",[i,a,s],f,u);try{return p=e.apply(a,i)}catch(h){throw c(n+"err",[i,a,h],f,u),h}finally{c(n+"end",[i,a,p],f,u)}}return a(e)?e:(n||(n=""),nrWrapper[p]=e,i(e,nrWrapper,t),nrWrapper)}function r(t,e,r,o,i){r||(r="");var c,s,u,f="-"===r.charAt(0);for(u=0;u<e.length;u++)s=e[u],c=t[s],a(c)||(t[s]=n(c,f?s+r:r,o,s,i))}function c(n,r,i,a){if(!h||e){var c=h;h=!0;try{t.emit(n,r,i,e,a)}catch(s){o([s,n,r,i],t)}h=c}}return t||(t=f),n.inPlace=r,n.flag=p,n}function o(t,e){e||(e=f);try{e.emit("internal-error",t)}catch(n){}}function i(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(i){o([i],n)}for(var a in t)l.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[p])}function c(t,e){var n=e(t);return n[p]=t,i(t,n,f),n}function s(t,e,n){var r=t[e];t[e]=c(r,n)}function u(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var f=t("ee"),d=t(28),p="nr@original",l=Object.prototype.hasOwnProperty,h=!1;e.exports=r,e.exports.wrapFunction=c,e.exports.wrapInPlace=s,e.exports.argsToArray=u},{}]},{},["loader",2,16,5,3,4]);</script>
+    <meta http-equiv="x-dns-prefetch-control" content="on" />
+    <title>Idaho Real Estate | Silvercreek Realty Group</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover" />
+
+    <script type='text/javascript'>
+        window.bt = { "firebase": { "url": "https:\/\/boomtownroi.page.link\/", "apn": "com.boomtownroi.android.consumer", "ibi": "com.boomtown.BoomTown-Consumer-iOS", "isi": 1478958795, "ofl": "https:\/\/mayakoch.silvercreekrealty.com\/", "afl": null, "ifl": null, "vid": "2QfL5eu8P265Qw6lzvshdYtqj1hcjZ1VhMJRUpmqTEY=" }, "config": { "contactFormMigration": true, "enableAppBanner": false, "comingSoonEnabled": false, "ajaxUrl": null, "apiUrl": "https:\/\/flagshipapi.boomtownroi.com", "newsstand": null, "baseUrl": null, "staticHost": "bt-boomstatic.global.ssl.fastly.net", "build": "20645", "dataCookieName": "BoomTownData", "authCookieName": "BoomTownAuth", "tempCookieName": null, "conversionCookieName": "ConversionType", "conversionQueryStringName": "regformcomplete", "registrationQueryStringName": "regformdisplay", "blTrackingOrigUrlQSName": "blt_url", "blTrackingReferrerQSName": "blt_ref", "defaultLat": 44.0606236, "defaultLng": -113.8458158, "defaultZoom": 8, "deviceInfo": { "deviceInfo": "Windows", "platformVersion": "10.0" }, "pageCount": 10, "defaultView": "hero", "defaultSearchUrl": "results-gallery", "maxviews": 1, "maxviewsParam": "mdv", "maxphotoParam": "mpv", "nonce": null, "suggestApiUrl": "https:\/\/suggest.boomtownroi.com", "templateUrl": "https:\/\/www.silvercreekrealty.com\/wp-content\/themes\/wp-base-theme\/templates\/", "baseThemeUrl": "https:\/\/www.silvercreekrealty.com\/wp-content\/themes\/wp-base-theme", "themeUrl": "https:\/\/www.silvercreekrealty.com\/wp-content\/themes\/wp-base-theme", "browserTitle": "Idaho Real Estate | Silvercreek Realty Group", "token": "18312X2s0K3d1W3i0X0S1i2F032_0k1R3s3y1U0W0V2R3t0L3h2s1r2g2c2C3Z36", "viewCookieName": "PropCount", "searchCookieName": "LastSearch", "boardAlias": "imls", "boardHtml": { "AllDataPagesDisclaimer": "<br\/><br\/> <img src=\"https:\/\/static.boomtownroi.com\/content\/photos\/imls\/idx\/idx-small.gif\" \/>\u00a9 [YEAR] Intermountain Multiple Listing Service, Inc. (IMLS). Real estate listings held by brokerage firms other than [TENANTNAME] are marked with the IMLS IDX logo and information about them includes the name of the listing brokerage. Information provided by IMLS is deemed reliable but not guaranteed. IDX information is provided exclusively for consumers' personal, non-commercial use and it may not be used for any purpose other than to identify prospective properties consumers may be interested in purchasing. IMLS does not assume any liability for missing or inaccurate data. Data last updated [UPDATEDTIMESTAMP].", "ContentBottomHtml": "", "DetailsBottomHtml": "IDX information \u00a9 [YEAR] Intermountain Multiple Listing Service, Inc. Information provided by IMLS is deemed reliable but not guaranteed.", "DetailsRemarksHtml": "", "DetailsTopHtml": "", "DisclaimerPageHtml": "", "eAlertFooter": "", "eAlertHtml": "", "eAlertHtmlMore": "", "FitScreenFooterHtml": "IDX information \u00a9 [YEAR] Intermountain Multiple Listing Service, Inc. (IMLS). Real estate listings held by brokerage firms other than [TENANTNAME] are marked with the IMLS IDX logo and information about them includes the name of the listing brokerage. IDX information is provided exclusively for consumers' personal, non-commercial use and it may not be used for any purpose other than to identify prospective properties consumers may be interested in purchasing. IMLS does not assume any liability for missing or inaccurate data.", "FullDetailsDisclaimer": "<img src=\"https:\/\/static.boomtownroi.com\/content\/photos\/imls\/idx\/idx-small.gif\" \/>Courtesy of [OFFICENAME].", "HomePageAndMapDisclaimer": "", "HomePageDisclaimer": "", "MobileDisclaimer": "IDX information \u00a9 [YEAR] Intermountain Multiple Listing Service, Inc. (IMLS). Real estate listings held by brokerage firms other than [TENANTNAME] are marked with the IMLS IDX logo and information about them includes the name of the listing brokerage. IDX information is provided exclusively for consumers' personal, non-commercial use and it may not be used for any purpose other than to identify prospective properties consumers may be interested in purchasing. IMLS does not assume any liability for missing or inaccurate data. ", "MobileFullViewCompliance": " <div align=\"center\" style=\"background: #fff; color: #000; margin-bottom: 8px;\">\r\nListing provided courtesy of [OFFICENAME].<br\/><br\/><\/div>", "MobileResultCompliance": "<img class=\"toppop\" style=\"float:right;height: 12px\" src=\"https:\/\/static.boomtownroi.com\/content\/photos\/imls\/idx\/idx-small.gif\" \/>", "MultiMLSThumbcardDisclaimer": "", "PreviewDisclaimer": "", "PreviewHtml": "Information provided by IMLS is deemed reliable but not guaranteed.", "ResultsDisclaimer": "", "ResultsHtml": "", "ScriptBottom": "", "TermsDisclaimer": "", "ThumbCardDisclaimer": "<img src=\"https:\/\/static.boomtownroi.com\/content\/photos\/imls\/idx\/idx-small.gif\" \/>Courtesy of [OFFICENAME].", "ThumbnailDisclaimer": "", "ThumbnailLogo": "<img src=\"https:\/\/static.boomtownroi.com\/content\/photos\/imls\/idx\/idx-small.gif\" \/>", "TopFullDetailsDisclaimer": "<img src=\"https:\/\/static.boomtownroi.com\/content\/photos\/imls\/idx\/idx-small.gif\" \/>Courtesy of [OFFICENAME].", "TopPopBottomHtml": "", "TopPopHtml": "<img class=\"toppop\" style=\"float:right;height: 12px\" src=\"https:\/\/static.boomtownroi.com\/content\/photos\/imls\/idx\/idx-small.gif\" \/>" }, "boards": { "81": { "_ID": 81, "BoardAlias": "imls", "BoardName": "Intermountain MLS", "Description": "", "LastUpdated": "2021-03-11T07:10:29.32", "RestrictMLS": false, "LastUpdatedAgo": 48 }, "267": { "_ID": 267, "BoardAlias": "pocatello", "BoardName": "Greater Pocatello Association of Realtors", "Description": "", "LastUpdated": "2021-03-11T07:31:14.143", "RestrictMLS": false, "LastUpdatedAgo": 27 }, "159": { "_ID": 159, "BoardAlias": "snakeriver", "BoardName": "Snake River MLS", "Description": "", "LastUpdated": "2021-03-11T07:23:08.977", "RestrictMLS": false, "LastUpdatedAgo": 36 }, "388": { "_ID": 388, "BoardAlias": "mcar", "BoardName": "Mountain Central Association of Realtors", "Description": "", "LastUpdated": "2021-03-11T07:45:30.507", "RestrictMLS": false, "LastUpdatedAgo": 13 } }, "boardHTMLs": { "81": { "AllDataPagesDisclaimer": "<br\/><br\/> <img src=\"https:\/\/static.boomtownroi.com\/content\/photos\/imls\/idx\/idx-small.gif\" \/>\u00a9 [YEAR] Intermountain Multiple Listing Service, Inc. (IMLS). Real estate listings held by brokerage firms other than [TENANTNAME] are marked with the IMLS IDX logo and information about them includes the name of the listing brokerage. Information provided by IMLS is deemed reliable but not guaranteed. IDX information is provided exclusively for consumers' personal, non-commercial use and it may not be used for any purpose other than to identify prospective properties consumers may be interested in purchasing. IMLS does not assume any liability for missing or inaccurate data. Data last updated [UPDATEDTIMESTAMP].", "ContentBottomHtml": "", "DetailsBottomHtml": "IDX information \u00a9 [YEAR] Intermountain Multiple Listing Service, Inc. Information provided by IMLS is deemed reliable but not guaranteed.", "DetailsRemarksHtml": "", "DetailsTopHtml": "", "DisclaimerPageHtml": "", "eAlertFooter": "", "eAlertHtml": "", "eAlertHtmlMore": "", "FitScreenFooterHtml": "IDX information \u00a9 [YEAR] Intermountain Multiple Listing Service, Inc. (IMLS). Real estate listings held by brokerage firms other than [TENANTNAME] are marked with the IMLS IDX logo and information about them includes the name of the listing brokerage. IDX information is provided exclusively for consumers' personal, non-commercial use and it may not be used for any purpose other than to identify prospective properties consumers may be interested in purchasing. IMLS does not assume any liability for missing or inaccurate data.", "FullDetailsDisclaimer": "<img src=\"https:\/\/static.boomtownroi.com\/content\/photos\/imls\/idx\/idx-small.gif\" \/>Courtesy of [OFFICENAME].", "HomePageAndMapDisclaimer": "", "HomePageDisclaimer": "", "MobileDisclaimer": "IDX information \u00a9 [YEAR] Intermountain Multiple Listing Service, Inc. (IMLS). Real estate listings held by brokerage firms other than [TENANTNAME] are marked with the IMLS IDX logo and information about them includes the name of the listing brokerage. IDX information is provided exclusively for consumers' personal, non-commercial use and it may not be used for any purpose other than to identify prospective properties consumers may be interested in purchasing. IMLS does not assume any liability for missing or inaccurate data. ", "MobileFullViewCompliance": " <div align=\"center\" style=\"background: #fff; color: #000; margin-bottom: 8px;\">\r\nListing provided courtesy of [OFFICENAME].<br\/><br\/><\/div>", "MobileResultCompliance": "<img class=\"toppop\" style=\"float:right;height: 12px\" src=\"https:\/\/static.boomtownroi.com\/content\/photos\/imls\/idx\/idx-small.gif\" \/>", "MultiMLSThumbcardDisclaimer": "", "PreviewDisclaimer": "", "PreviewHtml": "Information provided by IMLS is deemed reliable but not guaranteed.", "ResultsDisclaimer": "", "ResultsHtml": "", "ScriptBottom": "", "TermsDisclaimer": "", "ThumbCardDisclaimer": "<img src=\"https:\/\/static.boomtownroi.com\/content\/photos\/imls\/idx\/idx-small.gif\" \/>Courtesy of [OFFICENAME].", "ThumbnailDisclaimer": "", "ThumbnailLogo": "<img src=\"https:\/\/static.boomtownroi.com\/content\/photos\/imls\/idx\/idx-small.gif\" \/>", "TopFullDetailsDisclaimer": "<img src=\"https:\/\/static.boomtownroi.com\/content\/photos\/imls\/idx\/idx-small.gif\" \/>Courtesy of [OFFICENAME].", "TopPopBottomHtml": "", "TopPopHtml": "<img class=\"toppop\" style=\"float:right;height: 12px\" src=\"https:\/\/static.boomtownroi.com\/content\/photos\/imls\/idx\/idx-small.gif\" \/>" }, "267": { "AllDataPagesDisclaimer": "<br\/><br\/>\u00a9 [YEAR] Greater Pocatello Association of REALTORS\u00ae Multiple Listing Service. All Rights Reserved.  IDX information is provided exclusively for consumers' personal, non-commercial use and may not be used for any purpose other than to identify prospective properties consumers may be interested in purchasing. Information is deemed reliable but is not guaranteed accurate by the MLS or [TENANTNAME]. \r\n\r\nData last updated: [UPDATEDTIMESTAMP].\r\n<br\/><br\/>", "ContentBottomHtml": "", "DetailsBottomHtml": "", "DetailsRemarksHtml": "", "DetailsTopHtml": "", "DisclaimerPageHtml": "", "eAlertFooter": "", "eAlertHtml": "", "eAlertHtmlMore": "", "FitScreenFooterHtml": "", "FullDetailsDisclaimer": "Listing provided courtesy of [AGENTNAME] of [OFFICENAME].  \u00a9 [YEAR] Greater Pocatello Association of REALTORS\u00ae Multiple Listing Service. All Rights Reserved.", "HomePageAndMapDisclaimer": "", "HomePageDisclaimer": "", "MobileDisclaimer": "\u00a9 [YEAR] Greater Pocatello Association of REALTORS\u00ae Multiple Listing Service. All Rights Reserved.  IDX information is provided exclusively for consumers' personal, non-commercial use and may not be used for any purpose other than to identify prospective properties consumers may be interested in purchasing. Information is deemed reliable but is not guaranteed accurate by the MLS or [TENANTNAME]. \r\n\r\nData updated daily. Data last updated: [UPDATEDTIMESTAMP].", "MobileFullViewCompliance": "<div align=\"center\" style=\"background: #fff; color: #000; margin-bottom: 8px;\">Listing provided courtesy of [AGENTNAME] of [OFFICENAME]. <br\/> \u00a9 [YEAR] Greater Pocatello Association of REALTORS\u00ae Multiple Listing Service. All Rights Reserved.<\/div>", "MobileResultCompliance": "", "MultiMLSThumbcardDisclaimer": "\u00a9 [YEAR] Greater Pocatello Association of REALTORS", "PreviewDisclaimer": "", "PreviewHtml": "", "ResultsDisclaimer": "", "ResultsHtml": "", "ScriptBottom": "", "SoldFullDetailsDisclaimer": "", "SoldThumbCardDisclaimer": "", "TermsDisclaimer": "", "ThumbCardDisclaimer": "", "ThumbnailDisclaimer": "", "ThumbnailLogo": "", "TopFullDetailsDisclaimer": "", "TopPopBottomHtml": "", "TopPopHtml": "" }, "159": { "AllDataPagesDisclaimer": "\u00a9 [YEAR] Information provided by Snake River Regional Multiple Listing Service (SNRRMLS) is deemed reliable but not guaranteed.  Real estate listings held by brokerage firms other than [TENANTNAME] are marked with the SNRRMLS logo or an abbreviated logo and detailed information about them includes the name of the listing broker. Data last updated: [UPDATEDTIMESTAMP].", "ContentBottomHtml": "", "DetailsBottomHtml": "", "DetailsRemarksHtml": "", "DetailsTopHtml": "", "DisclaimerPageHtml": "", "eAlertFooter": "", "eAlertHtml": "", "eAlertHtmlMore": "", "FitScreenFooterHtml": "Information provided by Snake River Regional Multiple Listing Service (SNRRMLS) is deemed reliable but not guaranteed. Data last updated: [UPDATEDTIMESTAMP]. Real estate listings held by brokerage firms other than [TENANTNAME] are marked with the SNRRMLS logo or an abbreviated logo and detailed information about them includes the name of the listing broker.", "FullDetailsDisclaimer": "<img src=\"https:\/\/static.boomtownroi.com\/content\/photos\/snakeriver\/idx\/idx-large.gif\" \/> Listing provided courtesy of [OFFICENAME].", "HomePageAndMapDisclaimer": "Courtesy of [OFFICENAME]", "HomePageDisclaimer": "", "MobileDisclaimer": "Information provided by Snake River Regional Multiple Listing Service (SNRRMLS) is deemed reliable but not guaranteed. Data last updated: [UPDATEDTIMESTAMP]. Real estate listings held by brokerage firms other than [TENANTNAME] are marked with the SNRRMLS logo or an abbreviated logo and detailed information about them includes the name of the listing broker. ", "MobileFullViewCompliance": " <div align=\"center\" style=\"background: #fff; color: #000; margin-bottom: 8px;\">\r\nListing provided courtesy of [OFFICENAME].<br\/><br\/>\r\n<\/div>", "MobileResultCompliance": "<img class=\"toppop\" style=\"float:right;height: 12px\" src=\"https:\/\/static.boomtownroi.com\/content\/photos\/snakeriver\/idx\/idx-small.gif\" \/> ", "MultiMLSThumbcardDisclaimer": "\u00a9 [YEAR] Snake River Regional Multiple Listing Service", "PreviewDisclaimer": "", "PreviewHtml": "", "ResultsDisclaimer": "Courtesy of [OFFICENAME]", "ResultsHtml": "<img style=\"float:left;height: 16px\" src=\"https:\/\/static.boomtownroi.com\/content\/photos\/snakeriver\/idx\/idx-small.gif\" \/> Listing courtesy of [OFFICENAME]", "ScriptBottom": "", "SoldFullDetailsDisclaimer": "", "SoldThumbCardDisclaimer": "", "TermsDisclaimer": "", "ThumbCardDisclaimer": "<img src=\"https:\/\/static.boomtownroi.com\/content\/photos\/snakeriver\/idx\/idx-small.gif\" \/>", "ThumbnailDisclaimer": "", "ThumbnailLogo": "", "TopFullDetailsDisclaimer": "", "TopPopBottomHtml": "", "TopPopHtml": "<img class=\"toppop\" style=\"float:right;height: 12px\" src=\"https:\/\/static.boomtownroi.com\/content\/photos\/snakeriver\/idx\/idx-small.gif\" \/>" }, "388": { "AllDataPagesDisclaimer": "<br\/><br\/>\u00a9 [YEAR] Mountain Central Association of Realtors. All rights reserved. \r\n\r\nIDX information is provided exclusively for consumers' personal, non-commercial use and may not be used for any purpose other than to identify prospective properties consumers may be interested in purchasing. Information is deemed reliable but is not guaranteed accurate by the MLS or [TENANTNAME]. \r\n\r\nData last updated: [UPDATEDTIMESTAMP].", "ContentBottomHtml": "", "DetailsBottomHtml": "", "DetailsRemarksHtml": "", "DetailsTopHtml": "", "DisclaimerPageHtml": "", "eAlertFooter": "", "eAlertHtml": "", "eAlertHtmlMore": "", "FitScreenFooterHtml": "", "FullDetailsDisclaimer": "Listing information \u00a9 [YEAR] Mountain Central Association of Realtors<br\/>Listing provided courtesy of [AGENTNAME] of [OFFICENAME].", "HomePageAndMapDisclaimer": "", "HomePageDisclaimer": "", "MobileDisclaimer": "", "MobileFullViewCompliance": "", "MobileResultCompliance": "", "MultiMLSThumbcardDisclaimer": "\u00a9 [YEAR] Mountain Central Association of Realtors", "PreviewDisclaimer": "", "PreviewHtml": "", "ResultsDisclaimer": "", "ResultsHtml": "", "ScriptBottom": "", "SoldFullDetailsDisclaimer": "", "SoldThumbCardDisclaimer": "", "TermsDisclaimer": "", "ThumbCardDisclaimer": "", "ThumbnailDisclaimer": "", "ThumbnailLogo": "", "TopFullDetailsDisclaimer": "", "TopPopBottomHtml": "", "TopPopHtml": "" } }, "overrideTenantRegFormSettings": true, "cookieDomain": ".silvercreekrealty.com", "boardUpdated": "03-11-2021", "boardUpdatedTimestamp": "2021-03-11T07:10:29.32", "debug": false, "photoSqueeze": 3, "powerfulFeaturesDeprecated": false, "publicAssetUrl": "https:\/\/bt-wpstatic.freetls.fastly.net", "isMobile": 0, "showUserMenu": true, "allowSoldData": false, "showQualifyingQuestions": true, "showStartAnOffer": true, "btsource": null, "fbAuthenticatorUrl": "https:\/\/wp.prod.boomtownroi.com\/fb-authenticator\/", "isMobileApp": false, "mobileAppPlatform": null, "mobileAppVersion": false, "videoBackgroundEnabled": true, "homepageLayout": false, "hasVideoBackground": "", "teaserTemplate": "porthole-offset", "disableLocationAppMessage": false, "useListMapResultsSync": true, "useUnifiedNearbySearch": true, "enableTextPreferences": true, "enableExternalAppLinks": true, "isLandingPage": false, "homepageHeroPlugin": [], "cdnHost": "bt-wpstatic.freetls.fastly.net", "inner_logo_uri": "https:\/\/bt-wpstatic.freetls.fastly.net\/wp-content\/blogs.dir\/5777\/files\/2019\/01\/Innerpage.jpg", "colorScheme": { "hex": "#4e627e", "darker5": "#44566e", "darker10": "#3b4a5f", "rgb": "78, 98, 126" }, "sellerAds": 3 }, "compliance": { "HideLocalPics": false, "HideYearBuilt": false, "RestrictMLS": false, "MaxListingResults": 0, "HideDaysOld": false, "MLSContentOnly": false, "ReplaceUnderContract": "Contingent", "ShowFeatureTextOnCard": null }, "tenant": { "id": 6132, "street": "1099 South Wells St., Ste 200", "legalName": "Silvercreek Realty Group", "city": "Meridian", "state": "ID", "zip": "83642", "phone": "(208) 377-0422", "email": "", "formNumber": 2, "facebookPixelID": "2030763917222379", "allowFBLogin": true, "showAgentDDL": false, "lenderChecked": true, "conversionID": "770187417", "signupLabel": "PYG6COGh7ZIBEJnBoO8C", "clSqueeze": true, "hideLender": true, "isCanadian": false, "doubleOptIn": false, "IsMultiBoard": true, "brandLevelSearchNoResultsText": null, "brandLevelSearchNoResultsPage": null, "IsLiteCustomer": 0, "testGroup": 1 }, "network": { "id": 0 }, "visitorActions": { "LoginViewed": 61, "FacebookClicked": 62, "FacebookRegistrationViewed": 63, "FacebookRegistrationIncomplete": 64, "FacebookRegistrationComplete": 65, "FacebookSuccess": 66, "GoogleClicked": 67, "GoogleRegistrationViewed": 68, "GoogleRegistrationIncomplete": 69, "GoogleRegistrationComplete": 70, "GoogleSuccess": 71 }, "visitorDetails": { "_ID": 2176126230, "IsRegistered": false, "TenantID": 6132, "FavoriteCount": 0, "ActiveSearchCount": 0, "AgentID": 225517, "BuyerAgentID": 225517, "Favorites": null }, "visitDetails": { "_ID": "3078832417", "Url": "https:\/\/mayakoch.silvercreekrealty.com\/", "UrlReferrer": "https:\/\/www.mayakochrealty.com\/" }, "agentDetails": { "_ID": 225517, "FirstName": "Maya", "LastName": "Koch", "Alias": "MayaKoch", "Email": "mayalouise87@gmail.com", "Title": "REALTOR\u00ae", "Tagline": "", "HomePhone": "", "OfficePhone": "(269) 325-8259", "MobilePhone": "(269) 325-8259", "DirectPhone": "", "TollFreePhone": "", "FaxNumber": "", "Website": "", "PhotoLink": "225517.jpg", "Bio": "", "Awards": "", "OfficeName": "Silvercreek Realty Group", "Address1": "1099 South Wells St., Ste 200", "Address2": "", "City": "Meridian", "State": "ID", "PostalCode": "83642", "PostalMore": "", "ShowOnSite": false, "IDXApproved": false, "IsApproved": true, "SendLeads": false, "SocialLinks": "", "DRENumber": "", "AllowCustomSubdomain": false, "Slug": "225517-Maya-Koch", "Url": "https:\/\/MayaKoch.silvercreekrealty.com\/agents\/225517-Maya-Koch\/", "RelativeUrl": "\/agents\/225517-Maya-Koch\/", "FullName": "Maya Koch", "NoImage": "data:image\/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTUwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2RjZGNkY30uY2xzLTJ7ZmlsbDojZmZmfTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5ub19hZ2VudF9hdmF0YXI8L3RpdGxlPjxwYXRoIGlkPSJSZWN0YW5nbGUtMiIgY2xhc3M9ImNscy0xIiBkPSJNMCAwaDEyMHYxNTBIMHoiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik00MC4xOCA3NWgzOS42NEEyMi4xOCAyMi4xOCAwIDAgMSAxMDIgOTcuMThWMTUwSDE4Vjk3LjE4QTIyLjE4IDIyLjE4IDAgMCAxIDQwLjE4IDc1eiIvPjxnIGlkPSJwYXRoLTEiPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTYwIDc2LjVBMjkuNSAyOS41IDAgMSAxIDg5LjUgNDcgMjkuNTMgMjkuNTMgMCAwIDEgNjAgNzYuNXoiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik02MCAyMmEyNSAyNSAwIDEgMS0yNSAyNSAyNSAyNSAwIDAgMSAyNS0yNW0wLTlhMzQgMzQgMCAxIDAgMzQgMzQgMzQgMzQgMCAwIDAtMzQtMzR6Ii8+PC9nPjwvc3ZnPg==", "PhotoUrl": "https:\/\/bt-boomstatic.global.ssl.fastly.net\/content\/tenant\/INDDoughtyID\/agent\/225517.jpg", "WPUsername": "bt-225517" }, "template_variations": [], "globalVars": { "ImgDir": "https:\/\/bt-wpstatic.freetls.fastly.net\/wp-content\/themes\/wp-base-theme\/assets\/media\/build\/", "footerBelow": "" } };
+        window.bt.config.dataCookieExpDate = new Date(1615471123000);
+    </script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-22147283-3', 'auto', { allowLinker: true });
+        ga('require', 'GTM-M8C4ZPS');
+    </script>
+    <script type="text/javascript">
+
+        (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }
+            , i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        window.bt.trackers = [['', 'UA-135382075-1,UA-135382075-2']];
+
+        ga('create', 'UA-135382075-1', 'silvercreekrealty.com', { 'name': 'clientAccount' });
+        ga('clientAccount.require', 'displayfeatures');
+        ga('clientAccount.send', 'pageview', { "&uid": 2176126230, "dimension4": "unregistered", "dimension11": "2176126230" });
+
+
+        (function () {
+            var ga = document.createElement('script'),
+                s = document.getElementsByTagName('script')[0];
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = 'https://stats.g.doubleclick.net/dc.js';
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+    <link rel='dns-prefetch' href='//maps.googleapis.com' />
+    <link rel='dns-prefetch' href='//ajax.googleapis.com' />
+    <link rel='dns-prefetch' href='//www.silvercreekrealty.com' />
+    <link rel='dns-prefetch' href='//s.w.org' />
+    <link rel='dns-prefetch' href='//bt-wpstatic.freetls.fastly.net' />
+    <link rel='dns-prefetch' href='//flagshipapi.boomtownroi.com' />
+    <link rel='dns-prefetch' href='//suggest.boomtownroi.com' />
+    <link href='https://bt-wpstatic.freetls.fastly.net/wp-content/themes/wp-base-theme/assets/js/build/details.d46eda45.min.js' as='script' rel='prefetch' />
+    <link href='https://bt-wpstatic.freetls.fastly.net/wp-content/themes/wp-base-theme/assets/js/build/results-gallery.c653b200.min.js' as='script' rel='prefetch' />
+    <!-- Webmaster Tools Code -->
+    <meta name="msvalidate.01" content="D8D04684151FD367E65EE086C044BB13" />
+    <meta name="verify-v1" content="HfrlOxI0tXOyQYVa5mn06aV6HRUw316FVZdvJN7S7Dg=" />
+    <meta name="verify-v1" content="4B9FVONeQL4QgOvNN80STUWkDyrAlYC0719uBNXVK6Q=" />
+    <meta name="y_key" content="caa407bf3d1005c3" /><!-- Sitemap -->
+    <meta name="google-site-verification" content="ElETKLl-DNpa9rZNV3cEfoIZrGgZ5tW-JtMb7ICPXqU" />
+    <link rel='stylesheet' id='wp-block-library-css' href='https://bt-wpstatic.freetls.fastly.net/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='bt_pt-styles-css' href='https://bt-wpstatic.freetls.fastly.net/wp-content/themes/wp-base-theme/assets/css/build/base-theme.cbb54af3.min.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='bt-block-editor-frontend-styles-css' href='https://www.silvercreekrealty.com/wp-content/build/plugins/bt-block-editor.style.frontend.css?cache=1613147945' type='text/css' media='all' />
+    <link rel='stylesheet' id='bt-block-gmaps-frontend-css' href='https://www.silvercreekrealty.com/wp-content/build/plugins/bt-block-gmaps.frontend.style.frontend.css?cache=1613147945' type='text/css' media='all' />
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js' id='jquery-js'></script>
+    <script type='text/javascript' src='https://bt-wpstatic.freetls.fastly.net/wp-includes/js/dist/vendor/wp-polyfill.min.js' id='wp-polyfill-js'></script>
+    <script type='text/javascript' id='wp-polyfill-js-after'>
+        ('fetch' in window) || document.write('<script src="https://bt-wpstatic.freetls.fastly.net/wp-includes/js/dist/vendor/wp-polyfill-fetch.min.js"></scr' + 'ipt>'); (document.contains) || document.write('<script src="https://bt-wpstatic.freetls.fastly.net/wp-includes/js/dist/vendor/wp-polyfill-node-contains.min.js"></scr' + 'ipt>'); (window.DOMRect) || document.write('<script src="https://bt-wpstatic.freetls.fastly.net/wp-includes/js/dist/vendor/wp-polyfill-dom-rect.min.js"></scr' + 'ipt>'); (window.URL && window.URL.prototype && window.URLSearchParams) || document.write('<script src="https://bt-wpstatic.freetls.fastly.net/wp-includes/js/dist/vendor/wp-polyfill-url.min.js"></scr' + 'ipt>'); (window.FormData && window.FormData.prototype.keys) || document.write('<script src="https://bt-wpstatic.freetls.fastly.net/wp-includes/js/dist/vendor/wp-polyfill-formdata.min.js"></scr' + 'ipt>'); (Element.prototype.matches && Element.prototype.closest) || document.write('<script src="https://bt-wpstatic.freetls.fastly.net/wp-includes/js/dist/vendor/wp-polyfill-element-closest.min.js"></scr' + 'ipt>');
+    </script>
+    <script type='text/javascript' src='https://www.silvercreekrealty.com/wp-content/build/plugins/bt-block-editor.frontend.js?cache=1613147945' id='bt-block-editor-frontend-script-js'></script>
+    <script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDkI4WEplhhwG1bR2HLTOCxQ1-UgRR82Sg&#038;libraries=places' id='bt-block-gmaps-frontend-google-maps-api-js'></script>
+    <script type='text/javascript' src='https://bt-wpstatic.freetls.fastly.net/wp-content/plugins/bt-block-gmaps/resources/javascript/blocks/seller.js' id='bt-block-gmaps-frontend-js'></script>
+    <link rel='shortlink' href='https://MayaKoch.silvercreekrealty.com/' />
+    <link rel="alternate" type="application/json+oembed" href="https://MayaKoch.silvercreekrealty.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2FMayaKoch.silvercreekrealty.com%2F" />
+    <link rel="alternate" type="text/xml+oembed" href="https://MayaKoch.silvercreekrealty.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2FMayaKoch.silvercreekrealty.com%2F&#038;format=xml" />
+
+    <!-- Meta Description -->
+    <meta name="description" content="Silvercreek Realty Group: Meridian, ID Real Estate information and listings in Meridian, ID. Find all Meridian, ID homes for sale, Meridian, ID foreclosures, Meridian, ID condos for sale, and Meridian, ID land for sale - Every Listing from Every Company" />
+    <!-- Meta Keywords -->
+    <meta name="keywords" content="Real Estate, Idaho Real Estate, Idaho Homes for Sale" />
+    <!-- Robots Instructions -->
+    <meta name="robots" content="noindex,nofollow" />
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Idaho Real Estate | Silvercreek Realty Group" />
+    <meta property="og:title" content="Idaho Real Estate | Silvercreek Realty Group" />
+    <meta property="og:url" content="https://www.silvercreekrealty.com/" />
+    <meta property="og:description" content="Silvercreek Realty Group: Meridian, ID Real Estate information and listings in Meridian, ID. Find all Meridian, ID homes for sale, Meridian, ID foreclosures, Meridian, ID condos for sale, and Meridian, ID land for sale - Every Listing from Every Company" />
+    <meta property="og:image" content="http://beta.boomdemo.org/files/2019/01/FB-Logo.png" />
+
+    <!-- Schema.org Tags -->
+    <meta itemprop="image" content="http://beta.boomdemo.org/files/2019/01/FB-Logo.png">
+    <meta itemprop="name" content="Idaho Real Estate | Silvercreek Realty Group">
+    <meta itemprop="description" content="Silvercreek Realty Group: Meridian, ID Real Estate information and listings in Meridian, ID. Find all Meridian, ID homes for sale, Meridian, ID foreclosures, Meridian, ID condos for sale, and Meridian, ID land for sale - Every Listing from Every Company">
+    <link rel="canonical" href="https://www.silvercreekrealty.com/" />
+    <style id="bt-tenant-theme-vars">
+
+        :root {
+            --bt--style--color: #4e627e;
+            --bt--style--color--lightest: #dce2ea;
+            --bt--style--color--light: #bdc7d6;
+            --bt--style--color--dark: #313d4f;
+            --bt--style--color--rgb: 78, 98, 126
+        }
+    </style>
+
+    <script type='text/javascript'>
+        // Contact Form Disclaimer Plugin
+        jQuery(function () {
+            if (typeof window.bt.plugin === 'undefined') {
+                window.bt.plugin = {};
+            }
+            window.bt.plugin.contactFormDisclaimer = { "text": "By entering your information and clicking \"Continue\" you agree to our Terms of Use and Privacy Policy and that you may be contacted by phone, text message and email about your inquiry." };
+        });
+    </script>
+    <link rel="apple-touch-icon" sizes="57x57" href="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/cropped-Favicon-150x150.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/cropped-Favicon-150x150.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/cropped-Favicon-150x150.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/cropped-Favicon-150x150.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/cropped-Favicon-150x150.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/cropped-Favicon-150x150.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/cropped-Favicon-150x150.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/cropped-Favicon-180x180.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/cropped-Favicon-180x180.png">
+    <link rel="icon" type="image/png" href="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/cropped-Favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/cropped-Favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/cropped-Favicon-150x150.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/cropped-Favicon-32x32.png" sizes="16x16">
+    <link rel="shortcut icon" href="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/cropped-Favicon.png" />
+    <style id="bt-theme-customizations">
+            .uk-nav-side > li.uk-active > a {
+              background: #4e627e;
+            }
+            .uk-nav-side ul a {
+              color: #4e627e;
+            }
+            .uk-nav-side ul a:hover {
+              color: #3b4a5f;
+            }
+            .uk-nav-dropdown > li > a:hover,
+            .uk-nav-dropdown > li > a:focus {
+              background: #4e627e;
+            }
+            .uk-nav-dropdown ul a {
+              color: #4e627e;
+            }
+            .uk-nav-dropdown ul a:hover {
+              color: #3b4a5f;
+            }
+            .uk-nav-navbar > li > a:hover,
+            .uk-nav-navbar > li > a:focus {
+              background: #4e627e;
+            }
+            .uk-nav-navbar ul a {
+              color: #4e627e;
+            }
+            .uk-nav-navbar ul a:hover {
+              color: #3b4a5f;
+            }
+            .uk-subnav > * > :hover,
+            .uk-subnav > * > :focus {
+              color: #4e627e;
+            }
+            .uk-subnav > .uk-active > * {
+              color: #4e627e;
+            }
+            .uk-subnav-pill > .uk-active > * {
+              background: #4e627e;
+            }
+            .uk-pagination > .uk-active > span {
+              background: #4e627e;
+            }
+            .uk-tab > li > a {
+              color: #4e627e;
+            }
+            .uk-tab > li > a:hover,
+            .uk-tab > li > a:focus,
+            .uk-tab > li.uk-open > a {
+              color: #3b4a5f;
+            }
+            .btn-primary,
+            .calendar__day--active div {
+              background-color: #4e627e;
+              border-color: #44566e;
+            }
+            .uk-notouch .btn-primary:hover,
+            .uk-notouch .btn-primary:focus,
+            .uk-notouch .bt-active > .btn-primary,
+            .uk-notouch .calendar__day--active div:hover,
+            .uk-notouch .calendar__day--active div:focus {
+              background-color: #44566e;
+            }
+            .btn-primary:active,
+            .btn-primary.uk-active,
+            .btn-primary.active {
+              background-color: #3b4a5f;
+            }
+            .btn-primary:disabled,
+            .btn-primary.disabled,
+            .uk-notouch .btn-primary:disabled:hover,
+            .uk-notouch .btn-primary.disabled:hover {
+                background-color: rgba(78, 98, 126, 0.5);
+            }
+            .uk-badge {
+              background: #4e627e;
+            }
+            .uk-text-primary {
+              color: #4e627e !important;
+            }
+            .nav-autocomplete li.active > a {
+              background: #4e627e;
+            }
+            .uk-datepicker-table a.uk-active {
+              background: #4e627e;
+            }
+
+            @@media screen and (min-width: 480px) and (max-aspect-ratio: 13/9),
+            screen and (min-width: 824px) and (min-aspect-ratio: 13/9) {
+                a,
+                .uk-link {
+                    color: #4e627e;
+                }
+                .uk-notouch a:hover,
+                .uk-notouch .uk-link:hover,
+                .uk-notouch a:focus,
+                .uk-notouch .uk-link:focus,
+                .uk-notouch a:active,
+                .uk-notouch .uk-link:active {
+                    color: #3b4a5f;
+                }
+                .btn-link {
+                    color: #4e627e;
+                }
+                .uk-notouch .btn-link:hover,
+                .uk-notouch .btn-link:focus,
+                .btn-link:active,
+                .btn-link.uk-active {
+                    color: #3b4a5f;
+                }
+                form input[type]:focus,
+                form textarea:focus,
+                form select:focus {
+                    box-shadow: 0 0 0 1px #4e627e;
+                }
+                form input[type=radio]:checked:before {
+                    background: #4e627e;
+                }
+                form input[type=checkbox]:checked:before,
+                form input[type=checkbox]:indeterminate:before {
+                    color: #4e627e;
+                    background-color: #4e627e;
+                }
+                .user-avatar {
+                    background-color: #4e627e;
+                }
+            }
+
+            .uk-tab > li:not(.uk-active) > a,
+            .uk-tab > li.uk-open:not(.uk-active) {
+              color: #4e627e;
+            }
+            .bt-background-primary {
+              background: #4e627e;
+            }
+            .bt-gen-teaser[data-link]:hover {
+              box-shadow: 0 0 2px 1px rgba(78, 98, 126, 0.65);
+            }
+            .uk-notouch .menu-list .menu-list__link:hover,
+            .uk-notouch .menu-list .menu-list__link:focus,
+            .menu-list .menu-list__link.menu-list__link--active,
+            .menu-list .menu-list__link:active {
+              background: #4e627e;
+            }
+            .bt-search__price-list > li:hover,
+            .bt-search__price-list > li.active {
+              background: #4e627e;
+            }
+            .marker-label {
+              color: #4e627e;
+            }
+
+            .bt-listing-teaser--vertical-wrapper .bt-listing-teaser:not(.bt-listing-teaser__offmarket):hover {
+              box-shadow: 0 0 2px 1px rgba(78, 98, 126, 0.65);
+            }
+            .bt-listing-teaser--selected {
+              box-shadow: 0 0 0 1px #4e627e;
+            }
+            .bt-listing__agent--card .bt-panel,
+            .bt-listing__agent__contact-widget__card .bt-panel {
+              border-color: #4e627e;
+            }
+            .bt-listing__virtual-tour {
+              color: #4e627e;
+            }
+            .bt-card-slider-nav__cell.is-selected {
+              border: 1px solid #4e627e;
+            }
+            .main-sub-menu .sub-menu .sub-menu-link {
+              border-left: 2px solid #4e627e;
+            }
+            .bt-accent-border-color {
+                border-color: #4e627e;
+            }
+
+            #hero-background {
+              background-image: url('https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/02/Boise-Skyline-from-Walking-Path-small-600x320.jpg');
+            }
+            @@media (min-width: 768px) {
+              #hero-background {
+                background-image: url('https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/02/Boise-Skyline-from-Walking-Path-small-1024x520.jpg');
+              }
+            }
+            @@media (min-width: 960px) {
+              #hero-background {
+                background-image: url('https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/02/Boise-Skyline-from-Walking-Path-small-1440x520.jpg');
+              }
+            }
+            @@media (min-width: 1220px) {
+              #hero-background {
+                background-image: url('https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/02/Boise-Skyline-from-Walking-Path-small.jpg');
+              }
+            }
+    </style>
+    <style id="bt-agent-subdomain-customizer">
+    </style>
+    <link rel="icon" href="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/cropped-Favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" href="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/cropped-Favicon-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/cropped-Favicon-180x180.png" />
+    <meta name="msapplication-TileImage" content="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/cropped-Favicon-270x270.png" />
+</head>
+<body class="home page-template-default page-id-1 wp-embed-responsive  ui-search-mega ui-responsive-bg">
+    <a href='#skip-to-content' style='position:absolute; top:-100%; left:-100%; opacity:0'>Skip To Content</a>
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-5BDFQV"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5BDFQV');</script>
+    <script type='text/javascript'>
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ "currentPostID": 1 });
+    </script>
+
+
+
+    <!--[if IE]>
+      <div id="browser-warning" class="alert alert-warning uk-text-center">
+        <h3 class="mb-5">Browser Warning</h3>
+        <p class="mt-5">You are running an unsupported browser. You need to upgrade or use a different browser, such as <a href="https://google.com/chrome" target="_blank">Google Chrome</a>, to use this site.</p>
+      </div>
+    <![endif]-->
+    <div class="bt-off-canvas__wrapper">
+        <header id="top" class="js-header-top">
+            <nav class="bt-navbar js-hub">
+                <div class="container bt-navbar__container">
+                    <div class="bt-navbar__left">
+                        <ul id="menu-main-menu" class="uk-subnav">
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "><a class="menu-list__link" href="/">Home</a></li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children bt-ccomp" data-bt-ccomp="dropdown">
+                                <a class="menu-list__link" href="#" data-bt-ccomp-trigger>Search <svg class="bt-icon bt-icon--smaller"><title>Arrow Down</title><use xlink:href="#bicon-arrow-down" /></svg></a>
+                                <div class="bt-ccomp__content ">
+                                    <ul class="menu-list level-0">
+                                        <li class="menu-item menu-item-type-custom menu-item-object-custom "><a title="Maya Koch" class="menu-list__link" href="https://mayakoch.silvercreekrealty.com/agents/225517-Maya-Koch/">Agent</a></li>
+                                        <li class="menu-item menu-item-type-custom menu-item-object-custom "><a class="menu-list__link" href="/results-map/">Map Search</a></li>
+                                        <li class="menu-item menu-item-type-custom menu-item-object-custom "><a title="My Listings" class="menu-list__link" href="/results/?agent=225517">My Listings</a></li>
+
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom "><a class="menu-list__link" href="/buy/">Buying</a></li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom "><a class="menu-list__link" href="/finance/">Financing</a></li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children bt-ccomp" data-bt-ccomp="dropdown">
+                                <a class="menu-list__link" href="#" data-bt-ccomp-trigger>Selling <svg class="bt-icon bt-icon--smaller"><title>Arrow Down</title><use xlink:href="#bicon-arrow-down" /></svg></a>
+                                <div class="bt-ccomp__content ">
+                                    <ul class="menu-list level-0">
+                                        <li class="menu-item menu-item-type-custom menu-item-object-custom "><a class="menu-list__link" href="/sell/">Sell Your Home</a></li>
+                                        <li class="menu-item menu-item-type-custom menu-item-object-custom "><a class="menu-list__link" target="_blank" href="/home-valuation/">What&#8217;s My Home Worth?</a></li>
+
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children bt-ccomp" data-bt-ccomp="dropdown">
+                                <a class="menu-list__link" href="#" data-bt-ccomp-trigger>Resources <svg class="bt-icon bt-icon--smaller"><title>Arrow Down</title><use xlink:href="#bicon-arrow-down" /></svg></a>
+                                <div class="bt-ccomp__content ">
+                                    <ul class="menu-list level-0">
+                                        <li class="menu-item menu-item-type-custom menu-item-object-custom "><a class="menu-list__link" href="/blog/">Blog</a></li>
+                                        <li class="menu-item menu-item-type-custom menu-item-object-custom "><a class="menu-list__link" href="/guides/">Community Guides</a></li>
+                                        <li class="menu-item menu-item-type-custom menu-item-object-custom "><a class="menu-list__link" href="/resources/">Additional Resources</a></li>
+
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom "><a title="Contact Me" class="menu-list__link" href="/contactus/">Contact Me</a></li>
+                        </ul>
+                    </div>          <div class="bt-navbar__right">
+                        <ul class="uk-subnav">
+                            <li class="bt-ccomp js-saved-search-dropdown" data-bt-ccomp="dropdown">
+                                <a class="js-savedsearcheslnk" href="#" data-bt-ccomp-trigger data-cy="top-navbar__saved-searches">Saved Searches <span class="js-savedsearchcount uk-badge uk-badge-notification">0</span></a>
+                                <div class="bt-ccomp__content bt-dropdown--right jsx-saved-search-menu" />
+                            </li>
+                            <li>
+                                <a class="js-favorites" rel="nofollow" href="/results-gallery/?favs=1" data-cy="top-navbar__favorites-link">Favorites <span class="js-favoritescount uk-badge uk-badge-notification">0</span></a>
+                            </li>
+                            <li class="js-account-placeholder uk-hidden"></li>
+                            <li><a class="js-signin" rel="nofollow" href="#" title="Sign In" data-cy="top-navbar__sign-in">Sign In</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="js-mobile-header__wrapper bt-header__mobile px-10--safe py-5">
+            <div class="grid grid--center grid--justifyBetween">
+                <div class="cell">
+                    <a href="/" class="uk-display-inline-block">
+                        <img class="bt-inner-logo"
+                             src="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/Innerpage.jpg"
+                             alt="Silvercreek Realty Group">
+                    </a>
+                </div>
+                <div class="cell cell-xs-2 text-xs--right">
+                    <a href="#" class="bt-off-canvas__hamburger bt-off-canvas__trigger js-off-canvas__trigger at-menu-btn">
+                        <i class="fas fa-fw fa-bars"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <a name='skip-to-content'></a>
+        <div id="inner-viewport">
+
+            <div id="page-home" class="view">
+
+
+                <div id="hero-wrapper">
+                    <div id="hero-style-wrapper">
+                        <div id="hero-background" class="background-container search">
+                            <div id="hero-background-overlay"></div>
+                        </div>
+                    </div>
+                    <section id="hero" class="hero-container px-15--safe pb-15 search">
+                        <div class="container uk-position-relative">
+                            <div class="grid grid-xs--full grid--justifyCenter">
+                                <div class="cell uk-hidden-small uk-hidden-medium">
+                                    <a class="bt-logo--home__link" href="">
+                                        <img class="bt-logo--home"
+                                             src="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/Homepage-New.png"
+                                             width="1200"
+                                             height="400"
+                                             alt="Silvercreek Realty Group">
+                                    </a>
+                                </div>
+
+                                <div class="cell bt-hero__inner-template">
+                                    <div class="bt-hero--search">
+                                        <div class="grid grid--justifyCenter">
+                                            <div class="cell cell-md-10 cell-lg-9 search-spacer">
+                                                <div class="js-hero__search-bar">
+                                                    <form method="GET" action="/results-gallery/" class="js-home-search">
+                                                        <div class="bt-hero__search">
+                                                            <input type="hidden" name="photo" value="1">
+                                                            <input type="hidden" name="status" value="A">
+                                                            <input type="hidden" name="sort" value="importdate">
+                                                            <div class="bt-cell-align bt-cell-align--small width-1-1">
+                                                                <div class="width-1-1">
+                                                                    <div class="bt-search__query-wrapper">
+                                                                        <div class="bt-search__query-inner js-autocomplete">
+                                                                            <div class="bt-search-type__wrapper">
+                                                                                <div class="bt-ccomp" data-bt-ccomp="dropdown">
+                                                                                    <button type="button" class="js-searchby-trigger" data-bt-ccomp-trigger>Search By <svg class="bt-icon bt-icon--smaller"><use xlink:href="#bicon-arrow-down" /></svg></button>
+                                                                                    <div class="bt-ccomp__content bt-dropdown--small">
+                                                                                        <ul class="menu-list">
+                                                                                            <li class="mb-5"><a href="#" class="js-search-type menu-list__link" data-type="nearby" data-placeholder="Grabbing your location"><svg class="bt-icon"><use xlink:href="#bicon-navigate" /></svg> Nearby Me</a></li>
+
+                                                                                            <li><a href="#" rel="nofollow" class="js-search-type menu-list__link" data-type="all" data-placeholder="Type any Area, Address, ZIP, School, etc">SEARCH: All</a></li>
+                                                                                            <li><a href="#" class="js-search-type menu-list__link" data-type="city" data-placeholder="Type any City">Cities</a></li>
+
+                                                                                            <li><a href="#" rel="nofollow" class="js-search-type menu-list__link" data-type="neighborhood" data-placeholder="Type Any Neighborhood">Neighborhoods</a></li>
+
+                                                                                            <li><a href="#" rel="nofollow" class="js-search-type menu-list__link" data-type="address" data-placeholder="Type any Address">Address</a></li>
+                                                                                            <li><a href="#" rel="nofollow" class="js-search-type menu-list__link" data-type="listingmls" data-placeholder="Type any MLS#">MLS#</a></li>
+
+                                                                                            <li><a href="#" rel="nofollow" class="js-search-type menu-list__link" data-type="school" data-placeholder="Type any School">Schools</a></li>
+
+                                                                                            <li><a href="#" rel="nofollow" class="js-search-type menu-list__link" data-type="schooldistrict" data-placeholder="Type any School District">School Districts</a></li>
+
+                                                                                            <li><a href="#" rel="nofollow" class="js-search-type menu-list__link" data-type="postalcode" data-placeholder="Type any Zip Code">Zip Code</a></li>
+
+                                                                                            <li><a href="#" rel="nofollow" class="js-search-type menu-list__link" data-type="areaname" data-placeholder="Type any MLS Area">MLS Area</a></li>
+
+
+                                                                                            <li><a href="#" rel="nofollow" class="js-search-type menu-list__link" data-type="keyword" data-placeholder="Type any Keyword">Keyword</a></li>
+                                                                                            <li><a href="#" rel="nofollow" class="js-search-type menu-list__link" data-type="feature" data-placeholder="Type any Feature">Feature</a></li>
+
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <label style="position:absolute; opacity:0;" for="query">Search</label>
+                                                                            <input type="text" name="query" id="query" class="autocomplete bt-search__query" placeholder="Type any Area, Address, ZIP, School, etc" autocomplete="off">
+                                                                            <a href="#" class="bt-search__query-clear"><svg class="bt-icon"><title>Clear</title><use xlink:href="#bicon-close" /></svg></a>
+                                                                            <!--  CNS-1859: Fake submit button to show "Go" on iOS keyboard -->
+                                                                            <input type="submit" class="uk-hidden" value="Go">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="bt-home-search__button__wrapper pl-10">
+                                                                    <button type="submit" class="btn-primary uk-text-nowrap bt-home-search__button js-home-search">
+                                                                        <span class="uk-visible-small"><svg class="bt-icon bt-icon--larger"><use xlink:href="#bicon-search" /></svg></span>
+                                                                        <span class="uk-hidden-small">Find Your Home</span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                            <a class="bt-nearby-link bt-nearby-link--homepage js-nearby-button">
+                                                                <span><svg class="bt-icon bt-icon--larger"><use xlink:href="#bicon-navigate" /></svg> Search Properties Near Me</span>
+                                                            </a>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="bt-homepage__widget-wrapper px--safe">
+                    <div id="bt-sidebar--home" class="bt-homepage__sidebar-wrapper">
+                        <div id="bt_instructions-2" class="widget  widget_bt_instructions">
+                            <div class="bt-widget-teasers bt-widget-teasers--portholes bt-widget-teaser--portholes-offset">
+                                <div class="bt-widget-teasers__wrapper container">
+                                    <div class="grid grid--gutters grid-xs--full grid-md--thirds">
+                                        <div class="cell">
+                                            <div class="bt-widget-teasers__teaser">
+                                                <a href="/results-gallery/?status=A" target='_self' class="bt-teaser__link">
+                                                    <div class="bt-teaser__header">
+                                                        <img class="bt-teaser__image" src="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/Gallery-View.png" data-layzr="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/Gallery-View.png" alt="Gallery View">
+                                                        <div class="bt-teaser__button">
+                                                            <button type="button" class="btn-primary">See All Listings</button>
+                                                        </div>
+                                                    </div>
+                                                    <figcaption class="mt-5">
+                                                        <div class="uk-h2 mb-5 uk-link-muted">Gallery View</div>
+                                                        <div class="uk-text-muted">Photo gallery of properties</div>
+                                                    </figcaption>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="cell">
+                                            <div class="bt-widget-teasers__teaser">
+                                                <a href="/results-map/?status=A" target='_self' class="bt-teaser__link">
+                                                    <div class="bt-teaser__header">
+                                                        <img class="bt-teaser__image" src="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/Map-View.png" data-layzr="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/Map-View.png" alt="Map View">
+                                                        <div class="bt-teaser__button">
+                                                            <button type="button" class="btn-primary">See All Listings</button>
+                                                        </div>
+                                                    </div>
+                                                    <figcaption class="mt-5">
+                                                        <div class="uk-h2 mb-5 uk-link-muted">Map View</div>
+                                                        <div class="uk-text-muted">Google map, sidebar of properties</div>
+                                                    </figcaption>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="cell">
+                                            <div class="bt-widget-teasers__teaser">
+                                                <a href="/results/?status=A" target='_self' class="bt-teaser__link">
+                                                    <div class="bt-teaser__header">
+                                                        <img class="bt-teaser__image" src="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/Photo-View.png" data-layzr="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/Photo-View.png" alt="Photo View">
+                                                        <div class="bt-teaser__button">
+                                                            <button type="button" class="btn-primary">See All Listings</button>
+                                                        </div>
+                                                    </div>
+                                                    <figcaption class="mt-5">
+                                                        <div class="uk-h2 mb-5 uk-link-muted">Photo View</div>
+                                                        <div class="uk-text-muted">Large photo, sidebar of properties</div>
+                                                    </figcaption>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div id="bt_featured_agent-1" class="widget widget_bt_featured_agent">
+                            <div class="bt-widget featured-agent">
+                                <div class="grid grid--gutters">
+                                    <div class="cell cell-xs-12 cell-lg-4">
+                                        <div class="bt-cell-align bt-cell-align--small bt-cell-align--x-center">
+                                            <div class="pr-10">
+                                                <a href="/agents/225517-Maya-Koch" title="See agent's profile">
+                                                    <img alt="Maya Koch" src="https://bt-boomstatic.global.ssl.fastly.net/content/tenant/INDDoughtyID/agent/225517.jpg">
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <div class="uk-h4">Maya Koch</div>
+                                                <div class="uk-text-muted">
+                                                    <div>REALTOR®</div>
+                                                </div>
+                                                <div class="mt-5">Office: <a href="tel:(269) 325-8259" class="uk-link-muted" title="Call Maya Koch">(269) 325-8259</a></div>
+                                                <div>Mobile: <a href="tel:(269) 325-8259" class="uk-link-muted" title="Call Maya Koch">(269) 325-8259</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cell">
+                                        <h1 class="uk-h2 mb-15"></h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div id="bt_welcome-2" class="widget widget_homepage-text">
+                            <div id="intro" class="bt-widget bt_homepage_text">
+                                <div>
+                                    <div class="grid grid--gutters">
+                                        <div class="cell cell-xs-12 cell-md-5 order-md-12 text-xs--center">
+                                            <img alt="Let us help you wherever you want to be." class="uk-thumbnail bt_homepage_text__image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-layzr="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/02/Interior-Real-Estate.jpeg">
+                                        </div>
+                                        <div class="cell">
+                                            <h1 class="uk-h2 bt_homepage_text__title">Let us help you wherever you want to be.</h1>
+                                            <div class="bt_homepage_text__content">
+                                                <p><strong>Silvercreek Realty Group</strong> is the largest real estate brokerage in the State of Idaho. We are locally owned and have several locations throughout the state from East to West including Boise, Meridian, Eagle, Nampa, McCall, Twin Falls, Pocatello, Idaho Falls, Sun Valley, Coeur d’Alene and many more.</p>
+                                                <div class="av-special-heading av-special-heading-h4 meta-heading avia-builder-el-36 el_before_av_textblock avia-builder-el-first ">
+                                                    <h4 class="av-special-heading-tag "><strong>Why Silvercreek</strong>®<strong>?</strong></h4>
+                                                </div>
+                                                <div class="avia_textblock ">
+                                                    <p>We work hard to <strong>give our clients the advantage</strong> when buying or selling real estate in Idaho.</p>
+                                                </div>
+                                                <div class="avia-progress-bar-container avia_animate_when_almost_visible avia-builder-el-38 el_after_av_textblock el_before_av_textblock av-striped-bar av-animated-bar avia_start_animation">
+                                                    <div class="avia-progress-bar orange-bar icon-bar-yes">
+                                                        <div class="progressbar-title-wrap">
+                                                            <div class="progressbar-title">* <strong>Experienced Agents</strong></div>
+                                                        </div>
+                                                        <div class="progress avia_start_animation"></div>
+                                                    </div>
+                                                    <div class="avia-progress-bar blue-bar icon-bar-yes">
+                                                        <div class="progressbar-title-wrap">
+                                                            <div class="progressbar-title">* <strong>Great Support Staff</strong></div>
+                                                        </div>
+                                                        <div class="progress avia_start_animation">
+                                                            <div class="bar-outer">
+                                                                <div class="bar" data-progress="100">* <strong>Buyer Agent Services</strong></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="avia-progress-bar green-bar icon-bar-yes">
+                                                        <div class="progress avia_start_animation">
+                                                            <div class="bar-outer">
+                                                                <div class="bar" data-progress="100">* <strong>Listing Agent Services</strong></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="avia-progress-bar aqua-bar icon-bar-yes">
+                                                        <div class="progress avia_start_animation">
+                                                            <div class="bar-outer">
+                                                                <div class="bar" data-progress="100">* <strong>New Construction</strong></div>
+                                                            </div>
+                                                            <div data-progress="100"></div>
+                                                            <div data-progress="100">Your real estate is most likely <strong>your largest investment</strong>.  Let us put our experience and teamwork to work when buying or selling your next property.  From condos to homes… from investment properties to new developments…. <strong>We have you covered!</strong></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="bt_top_areas-2" class="widget widget--full-width py-15 widget_bt_top_areas">
+                            <section id="top-areas" class="bt-widget at-top-areas-widget">
+                                <div class="container">
+                                    <h2 class="uk-h3">Top Areas &#38; Neighborhoods</h2>
+                                    <ul class="grid grid--gutters grid-xs--full grid-md--halves bt-stripe-list">
+                                        <li class="cell">
+                                            <a href="/results-gallery/?city=35459&sort=importdate&status=A"
+                                               class="js-areasWidget"
+                                               title="Star">
+                                                Star                                                            <span class="uk-badge uk-badge-notification uk-float-right">
+                                                    15
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="cell">
+                                            <a href="/results-gallery/?citylike=Meridian&status=A"
+                                               class="js-areasWidget"
+                                               title="Meridian">
+                                                Meridian                                                            <span class="uk-badge uk-badge-notification uk-float-right">
+                                                    101
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="cell">
+                                            <a href="/results-gallery/?citylike=Boise&status=A"
+                                               class="js-areasWidget"
+                                               title="Boise">
+                                                Boise                                                            <span class="uk-badge uk-badge-notification uk-float-right">
+                                                    198
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="cell">
+                                            <a href="/results-gallery/?citylike=Nampa&status=A"
+                                               class="js-areasWidget"
+                                               title="Nampa">
+                                                Nampa                                                            <span class="uk-badge uk-badge-notification uk-float-right">
+                                                    155
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="cell">
+                                            <a href="/results-gallery/?citylike=Eagle&status=A"
+                                               class="js-areasWidget"
+                                               title="Eagle">
+                                                Eagle                                                            <span class="uk-badge uk-badge-notification uk-float-right">
+                                                    46
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="cell">
+                                            <a href="/results-gallery/?citylike=Idaho+Falls&status=A"
+                                               class="js-areasWidget"
+                                               title="Idaho Falls">
+                                                Idaho Falls                                                            <span class="uk-badge uk-badge-notification uk-float-right">
+                                                    182
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="cell">
+                                            <a href="/results-gallery/?citylike=Twin+Falls&status=A"
+                                               class="js-areasWidget"
+                                               title="Twin Falls">
+                                                Twin Falls                                                            <span class="uk-badge uk-badge-notification uk-float-right">
+                                                    99
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="cell">
+                                            <a href="/results-gallery/?citylike=McCall&status=A"
+                                               class="js-areasWidget"
+                                               title="McCall">
+                                                McCall                                                            <span class="uk-badge uk-badge-notification uk-float-right">
+                                                    179
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="cell">
+                                            <a href="/results-gallery/?citylike=Kuna&status=A"
+                                               class="js-areasWidget"
+                                               title="Kuna">
+                                                Kuna                                                            <span class="uk-badge uk-badge-notification uk-float-right">
+                                                    75
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="cell">
+                                            <a href="/results-gallery/?citylike=Caldwell&status=A"
+                                               class="js-areasWidget"
+                                               title="Caldwell">
+                                                Caldwell                                                            <span class="uk-badge uk-badge-notification uk-float-right">
+                                                    107
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="cell">
+                                            <a href="/results-gallery/?citylike=Pocatello&status=A"
+                                               class="js-areasWidget"
+                                               title="Pocatello">
+                                                Pocatello                                                            <span class="uk-badge uk-badge-notification uk-float-right">
+                                                    173
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="cell">
+                                            <a href="/results-gallery/?countylike=Boise&status=A"
+                                               class="js-areasWidget"
+                                               title="Boise County">
+                                                Boise County                                                            <span class="uk-badge uk-badge-notification uk-float-right">
+                                                    44
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
+                        </div>
+                        <div id="bt_listings-2" class="widget widget_bt_listings"><div class="js-widget-listings at-widget-listings" data-props="{&quot;title&quot;:&quot;Our Featured Listings&quot;,&quot;searchURL&quot;:&quot;\/results-gallery\/?UserID=all&quot;,&quot;display&quot;:&quot;slider&quot;,&quot;hideWhileLoading&quot;:true,&quot;params&quot;:{&quot;UserID&quot;:&quot;all&quot;,&quot;pageCount&quot;:4}}"></div></div><div id="bt_listings-3" class="widget widget_bt_listings"><div class="js-widget-listings at-widget-listings" data-props="{&quot;title&quot;:&quot;New Listings&quot;,&quot;searchURL&quot;:&quot;\/results-gallery\/?sort=importdate&amp;status=A&amp;photo=1&quot;,&quot;display&quot;:&quot;slider&quot;,&quot;hideWhileLoading&quot;:true,&quot;params&quot;:{&quot;sort&quot;:&quot;importdate&quot;,&quot;status&quot;:&quot;A&quot;,&quot;photo&quot;:&quot;1&quot;,&quot;pageCount&quot;:4}}"></div></div><div id="bt_listings-4" class="widget widget_bt_listings"><div class="js-widget-listings at-widget-listings" data-props="{&quot;title&quot;:&quot;Popular Listings&quot;,&quot;searchURL&quot;:&quot;\/results-gallery\/?sort=popularity&amp;status=A&amp;photo=1&quot;,&quot;display&quot;:&quot;slider&quot;,&quot;hideWhileLoading&quot;:true,&quot;params&quot;:{&quot;sort&quot;:&quot;popularity&quot;,&quot;status&quot;:&quot;A&quot;,&quot;photo&quot;:&quot;1&quot;,&quot;pageCount&quot;:4}}"></div></div>
+                    </div><div class="widget widget_bt_listings"><div class="js-widget-listings at-widget-listings" data-props="{&quot;title&quot;:&quot;My Listings&quot;,&quot;searchURL&quot;:&quot;\/results-gallery\/?agent=225517&quot;,&quot;display&quot;:&quot;slider&quot;,&quot;hideWhileLoading&quot;:true,&quot;params&quot;:{&quot;agent&quot;:&quot;225517&quot;,&quot;pageCount&quot;:4}}"></div></div><div class="widget widget_bt_featured_agent_contact_form_widget">
+                        <section class="widget bt-widget contact-agent">
+                            <div class="container">
+                                <div class="grid grid--gutters">
+                                    <div class="cell cell-xs-12 cell-lg-4">
+                                        <div class="bt-cell-align bt-cell-align--small bt-cell-align--x-center">
+
+                                            <div class="pr-10">
+                                                <a href="/agents/225517-Maya-Koch" title="See agent's profile">
+                                                    <img alt="Maya Koch" class="bt-image__no-mw" src="https://bt-boomstatic.global.ssl.fastly.net/content/tenant/INDDoughtyID/agent/225517.jpg">
+                                                </a>
+                                            </div>
+
+                                            <div>
+                                                <div class="uk-h4">Maya Koch</div>
+
+                                                <div class="uk-text-muted">REALTOR®</div>
+
+                                                <div class="mt-5">
+                                                    <div>Office: <a href="tel:(269) 325-8259" class="uk-link-muted" title="Call Maya Koch">(269) 325-8259</a></div>
+
+                                                    <div>Mobile: <a href="tel:(269) 325-8259" class="uk-link-muted" title="Call Maya Koch">(269) 325-8259</a></div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cell">
+                                        <div class="alert js-alert uk-hidden"></div>
+                                        <form class="js-contact-form" data-formname="contactagent" data-agentid="225517" data-parsley-validate>
+                                            <h3 class="uk-h2">Contact Me</h3>
+                                            <div class="grid grid--gutters grid-xs--full">
+                                                <div class="cell cell-md-6">
+                                                    <label for="homeWidgetFirstName">First Name</label>
+                                                    <input id="homeWidgetFirstName" class="js-txtFirstName at-firstName-txt" name="js-txtFirstName" type="text" value="" required>
+                                                </div>
+                                                <div class="cell cell-md-6">
+                                                    <label for="homeWidgetLastName">Last Name</label>
+                                                    <input id="homeWidgetLastName" class="js-txtLastName at-lastName-txt" name="js-txtLastName" type="text" value="" required>
+                                                </div>
+                                                <div class="cell cell-md-6">
+                                                    <label for="homeWidgetEmail">Email Address</label>
+                                                    <input id="homeWidgetEmail" class="js-txtEmail at-email-txt" name="js-txtEmail" type="email" value="" required>
+                                                </div>
+                                                <div class="cell cell-md-6">
+                                                    <label for="homeWidgetPhone">Phone Number</label>
+                                                    <input id="homeWidgetPhone" class="js-txtPhone at-phone-txt" class="js-txtPhone" type="tel" value="" data-parsley-phone required>
+                                                </div>
+                                                <div class="cell">
+                                                    <label for="homeWidgetMsg">What would you like to know?</label>
+                                                    <textarea id="homeWidgetMsg" class="js-txtFeatures at-comment-txt" name="js-txtFeatures"></textarea>
+                                                </div>
+                                                <div class="cell">
+                                                    <!-- SPAM PROTECTION -->
+                                                    <input type="text" name="LastName" class="LastName uk-hidden" aria-label="hidden field">
+                                                    <button class="js-btnSubmitForm btn-primary at-submit-btn">Send Your Question</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <footer class="bt-footer" data-cy="footer">
+                <div class="px--safe">
+                    <div class="container uk-text-small">
+                        <div class="grid grid--gutters">
+                            <div class="cell cell-xs-12 cell-md-3 cell-lg-2">
+
+
+                                <h3 class="bt-footer-widget__title">Guides</h3>
+                                <ul class="uk-list">
+                                    <li>
+                                        <a class="js-footer-guides" href="https://MayaKoch.silvercreekrealty.com/guide/star/">Star</a>
+                                    </li>
+                                    <li>
+                                        <a class="js-footer-guides" href="https://MayaKoch.silvercreekrealty.com/guide/meridian/">Meridian</a>
+                                    </li>
+                                    <li>
+                                        <a class="js-footer-guides" href="https://MayaKoch.silvercreekrealty.com/guide/boise/">Boise</a>
+                                    </li>
+                                    <li>
+                                        <a class="js-footer-guides" href="https://MayaKoch.silvercreekrealty.com/guide/nampa/">Nampa</a>
+                                    </li>
+                                    <li>
+                                        <a class="js-footer-guides" href="https://MayaKoch.silvercreekrealty.com/guide/eagle/">Eagle</a>
+                                    </li>
+                                    <li>
+                                        <a href="/guides/" class="bt-more-bounce js-footer-guides">More Guides <i class="fas fa-fw fa-chevron-right"></i></a>
+                                    </li>
+                                </ul>
+
+
+                            </div>
+                            <div class="cell cell-xs-12 cell-md-3 cell-lg-2">
+
+                                <h3 class="bt-footer-widget__title">Company</h3>
+                                <ul class="uk-list">
+                                    <li>
+                                        <a class="js-footer-blog" href="/blog/" title="Our blog">Our Blog</a>
+                                    </li>
+                                    <li>
+                                        <a class="at-footer-contactus" href="/contactus/" title="Contact Us">Contact Us</a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <div class="cell cell-xs-12 cell-md-3 cell-lg-2">
+
+                                <h3 class="bt-footer-widget__title">Resources</h3>
+                                <ul class="uk-list">
+                                    <li>
+                                        <a class="js-footer-buyhome" href="/buy/" title="Buy a home in Idaho">Buy a Home</a>
+                                    </li>
+                                    <li>
+                                        <a class="js-footer-sellhome" href="/sell/" title="Sell homes in Idaho">Sell Your Home</a>
+                                    </li>
+                                    <li>
+                                        <a class="js-footer-finance" href="/finance/" title="Finance your dream home in Idaho">Finance</a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <div class="cell cell-xs-12 cell-md-3 cell-lg-2">
+
+                                <h3 class="bt-footer-widget__title">Get Social</h3>
+                                <div class="bt-social-icons js-footer-social-icons">
+                                    <a href="/feed" target="_blank" aria-label="rss" title="rss" class="bt-icon__button bt-icon--rss js-footer-social-rss">
+                                        <i class="fas fa-fw fa-rss"></i>
+                                    </a>
+                                </div>
+
+                            </div>
+
+
+                            <div class="cell cell-xs-12 cell-lg-4">
+                                <div class="js-global-footer-about">
+                                    <h3 class="bt-footer-widget__title">About Us</h3>
+                                    <div class="js-global-footer-about-tag">
+                                        <p>Silvercreek Realty Group is Idaho&#39;s most innovative real estate team.</p>
+                                    </div>
+                                </div>
+                                <address class="js-global-footer-address">
+                                    <p>
+                                        Silvercreek Realty Group<br />
+                                        1099 South Wells St., Ste 200<br />
+                                        Meridian, ID 83642
+                                    </p>
+                                    <p><a href="tel:2083770422">(208) 377-0422</a></p>
+                                </address>
+                            </div>
+
+
+                        </div>
+                        <div class="mt-15 bt-disclaimer-bottom js-footer-bottom-links" data-cy="footer__disclaimer">
+                            <p class="mb-5">
+                                <br /><br /> <img src="https://static.boomtownroi.com/content/photos/imls/idx/idx-small.gif" />© 2021 Intermountain Multiple Listing Service, Inc. (IMLS). Real estate listings held by brokerage firms other than Silvercreek Realty Group are marked with the IMLS IDX logo and information about them includes the name of the listing brokerage. Information provided by IMLS is deemed reliable but not guaranteed. IDX information is provided exclusively for consumers' personal, non-commercial use and it may not be used for any purpose other than to identify prospective properties consumers may be interested in purchasing. IMLS does not assume any liability for missing or inaccurate data. Data last updated 2021-03-11T07:10:29.32.<br /><br />© 2021 Greater Pocatello Association of REALTORS® Multiple Listing Service. All Rights Reserved.  IDX information is provided exclusively for consumers' personal, non-commercial use and may not be used for any purpose other than to identify prospective properties consumers may be interested in purchasing. Information is deemed reliable but is not guaranteed accurate by the MLS or Silvercreek Realty Group.
+
+                                Data last updated: 2021-03-11T07:31:14.143.
+                                <br /><br />© 2021 Information provided by Snake River Regional Multiple Listing Service (SNRRMLS) is deemed reliable but not guaranteed.  Real estate listings held by brokerage firms other than Silvercreek Realty Group are marked with the SNRRMLS logo or an abbreviated logo and detailed information about them includes the name of the listing broker. Data last updated: 2021-03-11T07:23:08.977.<br /><br />© 2021 Mountain Central Association of Realtors. All rights reserved.
+
+                                IDX information is provided exclusively for consumers' personal, non-commercial use and may not be used for any purpose other than to identify prospective properties consumers may be interested in purchasing. Information is deemed reliable but is not guaranteed accurate by the MLS or Silvercreek Realty Group.
+
+                                Data last updated: 2021-03-11T07:45:30.507.
+                            </p>
+                        </div>
+
+
+                    </div>
+                </div>
+                <nav class="bt-footer-aux px--safe">
+                    <div class="container">
+                        <ul class="uk-subnav uk-subnav-line bt-disclaimer-menu mb-0">
+                            <li class="bt-disclaimer-menu__copyright">
+                                <a target="_blank"
+                                   href="https://boomtownroi.com?utm_campaign=silvercreekrealty.com&utm_medium=bt_client_site_referral&utm_source=client_sites"
+                                   rel="nofollow"
+                                   title="BoomTown &copy; 2021">
+                                    <img class='bt-disclaimer-menu__copyright__logo' src="/wp-content/themes/wp-base-theme/assets/media/build/boomtown-footer.png" alt="BoomTown" /> &copy; 2021
+                                </a>
+                            </li>
+                            <li><a href="/terms">Terms of Use</a></li>
+                            <li><a href="/privacy/">Privacy Policy</a></li>
+                            <li><a href="/accessibility/">Accessibility</a></li>
+                            <li><a href="/dmca/">DMCA</a></li>
+                            <li><a href="/sitemap/">Listings Sitemap</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </footer>
+        </div>
+    </div>
+    <nav class="bt-off-canvas bt-off-canvas__common bt-off-canvas-main-menu js-hub">
+        <a href="#" class="bt-off-canvas-menu__close js-off-canvas__close"><i class="fas fa-fw fa-times-circle"></i></a>
+        <div class="text-xs--center bt-off-canvas__header">
+            <i class="fas fa-fw fa-user"></i>
+        </div>
+
+
+        <div class="container js-user-instance--guest">
+            <div class="grid grid--gutters grid-xs--halves bt-off-canvas__account-btns">
+                <div class="cell text-xs--right">
+                    <button type="button" class="js-signin at-sign-in-btn" rel="nofollow">Sign In</button>
+                </div>
+                <div class="cell">
+                    <button type="button" class="btn-primary js-register at-register-btn" rel="nofollow">Register</button>
+                </div>
+            </div>
+        </div>
+        <div class="container bt-user-instance--registered js-user-instance--registered uk-hidden">
+            <div class="grid grid--gutters grid-xs--halves bt-off-canvas__account-btns">
+                <div class="cell text-xs--right">
+                    <a role="button" href="/account/" class="js-account-off-canvas btn-primary at-profile-btn" rel="nofollow">My Account</a>
+                </div>
+                <div class="cell">
+                    <a role="button" href="#" class="js-signout at-sign-out-btn" rel="nofollow">Sign Out</a>
+                </div>
+            </div>
+        </div>
+
+        <ul class="bt-nav-main">
+            <li id="menu-item-7" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item "><a href="/" class="p-15">Home</a></li>
+            <li id="menu-item-8" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children bt-ccomp" data-bt-ccomp="toggle">
+                <a href="#" class="p-15" data-bt-ccomp-trigger>Search <svg class="bt-icon bt-icon--smaller"><use xlink:href="#bicon-arrow-down" /></svg></a>
+                <div class="bt-ccomp__content px-15--safe">
+                    <ul class="bt-off-canvas__sub-menu level-0">
+                        <li id="menu-item-9" class="menu-item menu-item-type-custom menu-item-object-custom "><a title="Maya Koch" href="https://mayakoch.silvercreekrealty.com/agents/225517-Maya-Koch/" class="p-15">Agent</a></li>
+                        <li id="menu-item-10" class="menu-item menu-item-type-custom menu-item-object-custom "><a href="/results-map/" class="p-15">Map Search</a></li>
+                        <li id="menu-item-11" class="menu-item menu-item-type-custom menu-item-object-custom "><a title="My Listings" href="/results/?agent=225517" class="p-15">My Listings</a></li>
+
+                    </ul>
+                </div>
+            </li>
+            <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom "><a href="/buy/" class="p-15">Buying</a></li>
+            <li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom "><a href="/finance/" class="p-15">Financing</a></li>
+            <li id="menu-item-14" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children bt-ccomp" data-bt-ccomp="toggle">
+                <a href="#" class="p-15" data-bt-ccomp-trigger>Selling <svg class="bt-icon bt-icon--smaller"><use xlink:href="#bicon-arrow-down" /></svg></a>
+                <div class="bt-ccomp__content px-15--safe">
+                    <ul class="bt-off-canvas__sub-menu level-0">
+                        <li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom "><a href="/sell/" class="p-15">Sell Your Home</a></li>
+                        <li id="menu-item-16" class="menu-item menu-item-type-custom menu-item-object-custom "><a target="_blank" href="/home-valuation/" class="p-15">What&#8217;s My Home Worth?</a></li>
+
+                    </ul>
+                </div>
+            </li>
+            <li id="menu-item-17" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children bt-ccomp" data-bt-ccomp="toggle">
+                <a href="#" class="p-15" data-bt-ccomp-trigger>Resources <svg class="bt-icon bt-icon--smaller"><use xlink:href="#bicon-arrow-down" /></svg></a>
+                <div class="bt-ccomp__content px-15--safe">
+                    <ul class="bt-off-canvas__sub-menu level-0">
+                        <li id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom "><a href="/blog/" class="p-15">Blog</a></li>
+                        <li id="menu-item-19" class="menu-item menu-item-type-custom menu-item-object-custom "><a href="/guides/" class="p-15">Community Guides</a></li>
+                        <li id="menu-item-20" class="menu-item menu-item-type-custom menu-item-object-custom "><a href="/resources/" class="p-15">Additional Resources</a></li>
+
+                    </ul>
+                </div>
+            </li>
+            <li id="menu-item-21" class="menu-item menu-item-type-custom menu-item-object-custom "><a title="Contact Me" href="/contactus/" class="p-15">Contact Me</a></li>
+        </ul>
+        <ul class="bt-nav-main bt-off-canvas__ccomp-nav">
+            <li>
+                <div class="bt-ccomp" data-bt-ccomp="toggle">
+                    <a href="#" class="py-15 px-15--safe" data-bt-ccomp-trigger>
+                        Saved Searches
+                        <span class="js-savedsearchcount uk-badge uk-badge-notification">
+                            0
+                        </span>
+                        <i class="fas fa-fw fa-chevron-down"></i>
+                    </a>
+                    <div class="bt-ccomp__content jsx-off-canvas-saved-search-menu px-15--safe" />
+                </div>
+                </div>
+            </li>
+            <li>
+                <a href="/results-gallery/?favs=1" class="js-favorites at-user-favs-btn py-15 px-15--safe" data-cy="top-navbar__favorites-link">
+                    <i class="fas fa-fw fa-heart"></i>
+                    Favorites
+                    <span class="js-favoritescount uk-badge uk-badge-notification">
+                        0
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <script type='text/javascript'>
+        ga('create', 'UA-135382075-2', 'silvercreekrealty.com', { 'name': 'customAccount' });
+        ga('customAccount.require', 'displayfeatures');
+        ga('customAccount.send', 'pageview', { '&uid': 2176126230, 'dimension4': 'unregistered', 'dimension11': '2176126230' });
+    </script>
+    <!-- Client Provided April 1, 2019-->
+    <!-- Global site tag (gtag.js) - Google Ads: 754441277 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-754441277"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'AW-754441277');</script>
+
+    <!-- Client Provided by Support 12/05/19 -->
+    <script>
+
+        function googleTranslateElementInit() {
+
+            new google.translate.TranslateElement({
+
+                pageLanguage: 'en',
+
+                floatPosition: google.translate.TranslateElement.FloatPosition.TOP_LEFT
+
+            });
+
+        }
+
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script><!-- Served from lPRXV-WORD09 --><link rel='stylesheet' id='teaser_style_porthole-offset-css' href='https://bt-wpstatic.freetls.fastly.net/wp-content/plugins/bt-teaser/resources/stylesheets/templates/porthole-offset.css' type='text/css' media='all' />
+    <script type='text/javascript' src='https://bt-wpstatic.freetls.fastly.net/wp-includes/js/dist/vendor/lodash.min.js' id='lodash-js'></script>
+    <script type='text/javascript' id='lodash-js-after'>
+        window.lodash = _.noConflict();
+    </script>
+    <script type='text/javascript' src='https://bt-wpstatic.freetls.fastly.net/wp-includes/js/dist/vendor/react.min.js' id='react-js'></script>
+    <script type='text/javascript' src='https://bt-wpstatic.freetls.fastly.net/wp-includes/js/dist/vendor/react-dom.min.js' id='react-dom-js'></script>
+    <script type='text/javascript' src='https://bt-wpstatic.freetls.fastly.net/wp-includes/js/dist/escape-html.min.js' id='wp-escape-html-js'></script>
+    <script type='text/javascript' src='https://bt-wpstatic.freetls.fastly.net/wp-includes/js/dist/element.min.js' id='wp-element-js'></script>
+    <script type='text/javascript' src='https://bt-wpstatic.freetls.fastly.net/wp-includes/js/dist/is-shallow-equal.min.js' id='wp-is-shallow-equal-js'></script>
+    <script type='text/javascript' src='https://bt-wpstatic.freetls.fastly.net/wp-includes/js/dist/priority-queue.min.js' id='wp-priority-queue-js'></script>
+    <script type='text/javascript' src='https://bt-wpstatic.freetls.fastly.net/wp-includes/js/dist/compose.min.js' id='wp-compose-js'></script>
+    <script type='text/javascript' src='https://bt-wpstatic.freetls.fastly.net/wp-includes/js/dist/hooks.min.js' id='wp-hooks-js'></script>
+    <script type='text/javascript' src='https://bt-wpstatic.freetls.fastly.net/wp-includes/js/dist/deprecated.min.js' id='wp-deprecated-js'></script>
+    <script type='text/javascript' src='https://bt-wpstatic.freetls.fastly.net/wp-includes/js/dist/redux-routine.min.js' id='wp-redux-routine-js'></script>
+    <script type='text/javascript' src='https://bt-wpstatic.freetls.fastly.net/wp-includes/js/dist/data.min.js' id='wp-data-js'></script>
+    <script type='text/javascript' id='wp-data-js-after'>
+        (function () {
+            var userId = 0;
+            var storageKey = "WP_DATA_USER_" + userId;
+            wp.data
+                .use(wp.data.plugins.persistence, { storageKey: storageKey });
+            wp.data.plugins.persistence.__unstableMigrate({ storageKey: storageKey });
+        })();
+    </script>
+    <script type='text/javascript' id='bt-block-editor-forms-frontend-scripts-js-before'>
+        window.currentPostID = 1;
+    </script>
+    <script type='text/javascript' src='https://www.silvercreekrealty.com/wp-content/build/plugins/bt-block-editor-forms.frontend.js?cache=BT_GUTENBERG_ASSETS_STATIC_VERSION' id='bt-block-editor-forms-frontend-scripts-js'></script>
+    <script type='text/javascript' src='https://bt-wpstatic.freetls.fastly.net/wp-content/themes/wp-base-theme/assets/js/build/manifest.2d4ac0ca.min.js' id='bt_pt-manifest-js'></script>
+    <script type='text/javascript' src='https://bt-wpstatic.freetls.fastly.net/wp-content/themes/wp-base-theme/assets/js/build/deps.8b2aa3e9.min.js' id='bt_pt-deps-js'></script>
+    <script type='text/javascript' id='bt_pt-components-js-extra'>
+        /* <![CDATA[ */
+        var bt_data = { "listings": null, "account": { "Offices": [{ "_ID": 7030, "Name": "Silvercreek Realty Group", "MLS": "", "Phone": "(208) 377-0422", "Fax": "", "Address1": "1099 South Wells St., Ste 200", "Address2": "", "City": "Meridian", "State": "ID", "PostalCode": "83642", "Website": "", "PhotoUrl": "" }, { "_ID": 7509, "Name": "Silvercreek Realty Group - Idaho Falls", "MLS": "", "Phone": "208-523-6111", "Fax": "", "Address1": "2002 Jenny Lee Drive", "Address2": "", "City": "Idaho Falls", "State": "ID ", "PostalCode": "83404", "Website": "", "PhotoUrl": "" }], "SocialSettings": [{ "Name": "RSS", "Url": "\/feed", "TenantID": 6132 }], "TimeZoneID": 3, "Website": "SilvercreekRealty.com", "CompanyName": "Silvercreek Realty Group", "LegalName": "Silvercreek Realty Group", "OfficeMLS": "UserID=all", "ServiceArea": "Idaho", "EmailAddress": "", "WebPhoneNumber": "(208) 377-0422", "PhoneNumber": "(208) 377-0422", "FaxNumber": "", "Street": "1099 South Wells St., Ste 200", "City": "Meridian", "State": "ID", "ZipCode": "83642", "CraigsListArea": "boi,", "GoogleCode": "UA-135382075-1,UA-135382075-2", "AdwordsConversion": "770187417", "AdwordsSignupLabel": "PYG6COGh7ZIBEJnBoO8C", "AdwordsLeadLabel": "adwords lead label", "GMapKey": "AIzaSyDkI4WEplhhwG1bR2HLTOCxQ1-UgRR82Sg", "TagLine": "", "SubTagLine": "", "ThemeName": "Hawkeye", "HomeImageUrl": "homepage.jpg", "DefaultMapLat": 44.0606236, "DefaultMapLng": -113.8458158, "DefaultMapZoom": 8, "OnStageServer": false, "HideStreet": 0, "GuestUnbranded": false, "QuickSearchField": "CustomArea", "ShowListingAreaOnPS": true, "ShowCountyOnPS": true, "AgentExportLeads": false, "IsCustomMapPin": false, "IsDiscountBroker": false, "ShowOpenHouse": true, "EmailDomain": "silvercreekrealtyemail.net", "CancelDate": "0001-01-01T00:00:00", "LaunchDate": "2019-01-30T00:00:00", "CraigsListUseCityForCampaign": false, "RegisterNoAutoLender": false, "AdWordsProjected": 0, "HomeGainProjected": 0, "AllowListingComments": true, "AllowAgentComments": true, "FacebookAPI": "1960206234275371", "CraigsListLinkBehaviorID": 0, "ShowSchoolSearch": true, "ShowSchoolDistrictSearch": true, "AllowAutoEAlert": true, "AllowAgentEAlertOverride": true, "CustomScript": "<!-- Client Provided April 1, 2019-->\r\n\r\n<!-- Global site tag (gtag.js) - Google Ads: 754441277 --> <script async src=\"https:\/\/www.googletagmanager.com\/gtag\/js?id=AW-754441277\"><\/script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-754441277'); <\/script>\r\n\r\n<!-- Client Provided by Support 12\/05\/19 -->\r\n<script>\r\n \r\nfunction googleTranslateElementInit() {\r\n \r\nnew google.translate.TranslateElement({\r\n \r\npageLanguage: 'en',\r\n \r\nfloatPosition: google.translate.TranslateElement.FloatPosition.TOP_LEFT\r\n \r\n});\r\n \r\n}\r\n \r\n<\/script><script src=\"\/\/translate.google.com\/translate_a\/element.js?cb=googleTranslateElementInit\"><\/script>", "AllowLeadModifyEAlert": true, "AllowFBLogin": true, "ShowPriceHistory": true, "ZillowWidgetStatus": 0, "ShowDripPlans": true, "ShowNeighborhoodSearch": true, "SuccessManagerID": 0, "AssignedToSuccessManagerDate": "0001-01-01T00:00:00", "UseInstantSearch": true, "Name": "Silvercreek Realty Group", "Alias": "INDDoughtyID", "BoardID": 81, "BoardIDs": [81, 267, 159, 388], "PrimaryDomain": "silvercreekrealty.com", "UseCityForLocation": false, "ShowAgentsOnSiteKey": 0, "ShowAgentsOnSiteTypeID": 0, "LeadDistributionID": 0, "NetworkID": 0, "MobileWebPhoneNumber": "(208) 377-0422", "TenantID": 6132, "AllowGoogleLogin": false, "GoogleClientID": "", "RentalsOnly": false, "AllowCraigslist": true, "LimitCraigslist": false, "RegisterShowOwnership": false, "PrimaryContactID": 166975, "RegisterShowAgentDDL": false, "ShowSellerLeadCaptureForm": true, "BingWebmasterCode": "D8D04684151FD367E65EE086C044BB13", "ShowTopHoodsOnGuides": false, "NotifyBrokerAdminOnPublished": false, "CustomConversionScript": "PCEtLSBDbGllbnQgUHJvdmlkZWQgQXByaWwgMSwgMjAxOS0tPg0KDQo8IS0tIEdsb2JhbCBzaXRlIHRhZyAoZ3RhZy5qcykgLSBHb29nbGUgQWRzOiA3NTQ0NDEyNzcgLS0+IDxzY3JpcHQgYXN5bmMgc3JjPSJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbS9ndGFnL2pzP2lkPUFXLTc1NDQ0MTI3NyI+PC9zY3JpcHQ+IDxzY3JpcHQ+IHdpbmRvdy5kYXRhTGF5ZXIgPSB3aW5kb3cuZGF0YUxheWVyIHx8IFtdOyBmdW5jdGlvbiBndGFnKCl7ZGF0YUxheWVyLnB1c2goYXJndW1lbnRzKTt9IGd0YWcoJ2pzJywgbmV3IERhdGUoKSk7IGd0YWcoJ2NvbmZpZycsICdBVy03NTQ0NDEyNzcnKTsgPC9zY3JpcHQ+IA0KDQoNCiA8IS0tIENsaWVudCBQcm92aWRlZCBBcHJpbCAxLCAyMDE5LS0+DQoNCjwhLS0gRXZlbnQgc25pcHBldCBmb3IgR2VuZXJhbCBCb29tdG93biBMZWFkIGNvbnZlcnNpb24gcGFnZSAtLT4gPHNjcmlwdD4gZ3RhZygnZXZlbnQnLCAnY29udmVyc2lvbicsIHsnc2VuZF90byc6ICdBVy03NTQ0NDEyNzcvaEpnckNQNkl3cGNCRUwyNDMtY0MnfSk7IDwvc2NyaXB0Pg==", "IsCanadian": false, "IsLiteCustomer": false, "RequireIDXApproval": false, "ShowPreferredLender": false, "FacebookPixelID": "2030763917222379", "IsMultiBoard": true, "HomeIntroHtml": "", "HomeMetaDescription": "", "HomeMetaKeywords": "" }, "specialRules": { "ShowSchoolInfo": true, "ShowSchoolDistrictInfo": true, "ShowDaysOld": true, "ShowMapDisclaimer": false, "ShowYearBuilt": true, "ShowYearBuiltInDetails": true, "ShowNeighborhoodInfo": true, "ShowStatus": true, "ShowMobile": false, "HideStatusOnListingDetails": false, "HideAgentFromRequest": false, "HideContactMention": false, "HideSashTag": [""], "ShowPublicRemarks": true, "ShowFeatures": true, "ShowNumUnits": true, "ShowAcresSQFT": true, "ShowSQFT": true, "DisplaySQFT": true, "ShowDaysListed": true, "ShowPriceReduced": true, "ShowPricePerSqFt": true, "ShowGarages": true, "HideRentals": false, "ShowStories": true, "ShowHalfBaths": true, "ShowActiveContingent": true, "HideForeclosure": false, "HideHomeSearchNowBanner": false, "HideShortsale": false, "ShowListingStatus": true, "ChangeSearchTitle": "MLS Home Search", "ShowRemarks": true, "ShowICBM": false, "ShowRegisteredInfo": false, "HideMobileNumbers": false, "HideMarketTrends": false, "HideListingsLink": false, "HideLandingSellInfo": false, "HideCompanyAddress": false, "HideZillow": false, "CraigsListUsePostalCode": false, "ShowMostPopular": true, "CraigsListGoToPropDeets": false, "UseHoodlike": false, "HideLandingHoods": false, "ShowSqFtSource": false, "AddDecimalToCoordinates": false, "ShowOffMarketAddress": true, "FancyFeaturedHouses": false, "ShowAllLeadsOption": true, "AddDirections": true, "AddExtrasToRemarks": false, "DontUseMoreFolder": false, "MaxDeetsBeforeRegister": null, "UseSacramentoPricing": false, "RestrictMarketTrends": false, "FeaturedHousesByOffice": false, "MaxListingResults": 0, "ShowPreviewOffice": true, "FeatureListDelimiter": ",", "UseRetsListingKeyForImport": false, "OverrideLenderSub": false, "ShowAverageTrends": true, "ShowSharing": true, "ShowFBLike": true, "ShowListingCountInBannerAndQuickSearch": true, "DistressedReplacementText": "Distressed", "ClientIsCanadian": false, "BoardIsCanadian": false, "ShowForeclosureBanner": true, "UseMetersForAcreageConversions": false, "ShowAgentInMapResults": false, "HideBrandingOnFinancePage": false, "UseMasterEmailForSyndication": false, "LandingPageForMarketTrends": 0, "ShowRegistrationFormOnFirstPropertyDetailViewForAdwords": true, "ShowRegistrationFormOnFirstPropertyDetailViewForAdcenter": false, "DisableSyndicationForBoard": false, "EnableSyndicationForTenant": false, "ListAgentEmailDelimiter": "", "StripExtraApostrophesFromData": false, "DetailsListingCourtesyOfText": "Listing Courtesy Of", "ShowCourtesyOfUnderPreviewImage": false, "FeaturedHomesWhereClause": "", "HideVirtualTours": false, "AllowAdditionalCraigsListListings": false, "ShowCounty": false, "DownloadPhotosOneAtATime": false, "HideLotSize": false, "HideLocalPics": false, "MLSContentOnly": false, "ShowAcresSearch": true, "ShowHudSearchOption": false, "BypassCLRegForm": false, "ReplaceUnderContract": "Contingent", "UseSlashParsingForBedRooms": false, "PhotoSqueezeCount": null, "HideAgentFromPropDesc": false, "HideSponsoredLenderLanguage": false, "ShowIDXApproved": false, "ShowPreferredLender": false, "OptOutOfCASL": false, "IgnoreMalformedHeaders": false, "ShowPriceTypeOnListing": false, "ShowPending": true, "HideComingSoon": true }, "searchFields": [{ "FieldID": 1, "Group": "PropType", "FieldName": "Single-Family Home", "FieldValue": "SF", "InQuickSearch": true, "ListingField": "", "IsHidden": false }, { "FieldID": 2, "Group": "PropType", "FieldName": "Condo", "FieldValue": "C", "InQuickSearch": true, "ListingField": "", "IsHidden": false }, { "FieldID": 3, "Group": "PropType", "FieldName": "Villa \/ Townhouse", "FieldValue": "VT", "InQuickSearch": true, "ListingField": "", "IsHidden": false }, { "FieldID": 4, "Group": "PropType", "FieldName": "Vacant Land \/ Lots", "FieldValue": "VC", "InQuickSearch": true, "ListingField": "", "IsHidden": false }, { "FieldID": 5, "Group": "PropType", "FieldName": "Manufactured Home", "FieldValue": "M", "InQuickSearch": true, "ListingField": "", "IsHidden": false }, { "FieldID": 6, "Group": "PropType", "FieldName": "Multi-Family", "FieldValue": "MF", "InQuickSearch": true, "ListingField": "", "IsHidden": false }, { "FieldID": 7, "Group": "PropType", "FieldName": "Commercial", "FieldValue": "CM", "InQuickSearch": true, "ListingField": "", "IsHidden": false }, { "FieldID": 9, "Group": "PropType", "FieldName": "Rentals", "FieldValue": "RN", "InQuickSearch": true, "ListingField": "", "IsHidden": false }, { "FieldID": 10, "Group": "PropType", "FieldName": "Farm", "FieldValue": "FM", "InQuickSearch": true, "ListingField": "", "IsHidden": false }, { "FieldID": 11, "Group": "Feature", "SubGroup": "Waterfront", "FieldName": "Lake Front", "FieldValue": "L", "InQuickSearch": true, "ListingField": "IsLakefront", "IsHidden": false }, { "FieldID": 12, "Group": "Feature", "SubGroup": "Property Features", "FieldName": "On Golf Course", "FieldValue": "GC", "InQuickSearch": true, "ListingField": "OnGolfCourse", "IsHidden": false }, { "FieldID": 13, "Group": "Feature", "SubGroup": "Community Features", "FieldName": "Gated Community", "FieldValue": "GT", "InQuickSearch": true, "ListingField": "InGatedCommunity", "IsHidden": false }, { "FieldID": 14, "Group": "Feature", "SubGroup": "Waterfront", "FieldName": "Waterfront", "FieldValue": "W", "InQuickSearch": true, "ListingField": "IsWaterfront", "IsHidden": false }, { "FieldID": 18, "Group": "Feature", "SubGroup": "Property Features", "FieldName": "New Construction", "FieldValue": "N", "InQuickSearch": true, "ListingField": "IsNewHome", "IsHidden": false }, { "FieldID": 19, "Group": "Feature", "SubGroup": "Property Features", "FieldName": "Historic Property", "FieldValue": "H", "InQuickSearch": true, "ListingField": "IsHistoric", "IsHidden": false }, { "FieldID": 20, "Group": "Feature", "SubGroup": "Exterior Features", "FieldName": "Garage", "FieldValue": "GR", "InQuickSearch": true, "ListingField": "HasGarage", "IsHidden": false }, { "FieldID": 21, "Group": "Feature", "SubGroup": "Exterior Features", "FieldName": "Pool", "FieldValue": "P", "InQuickSearch": true, "ListingField": "HasPool", "IsHidden": false }, { "FieldID": 22, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Fireplace", "FieldValue": "F", "InQuickSearch": true, "ListingField": "HasFireplace", "IsHidden": false }, { "FieldID": 23, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Master Downstairs", "FieldValue": "MD", "InQuickSearch": true, "ListingField": "IsMasterDown", "IsHidden": false }, { "FieldID": 24, "Group": "Feature", "SubGroup": "Property Features", "FieldName": "Handicap Equipped", "FieldValue": "HC", "InQuickSearch": true, "ListingField": "IsHandicapped", "IsHidden": false }, { "FieldID": 25, "Group": "Feature", "SubGroup": "Property Features", "FieldName": "Green \/ LEED", "FieldValue": "G", "InQuickSearch": true, "ListingField": "IsGreen", "IsHidden": false }, { "FieldID": 26, "Group": "Feature", "SubGroup": "Title Status", "FieldName": "Foreclosure or Bank-owned", "FieldValue": "BO", "InQuickSearch": false, "ListingField": "IsBankOwned", "IsHidden": false }, { "FieldID": 27, "Group": "Feature", "FieldName": "Open House", "FieldValue": "OH", "InQuickSearch": false, "ListingField": "HasOpenHouse", "IsHidden": false }, { "FieldID": 28, "Group": "Feature", "SubGroup": "Title Status", "FieldName": "Short Sale Listings", "FieldValue": "SS", "InQuickSearch": false, "ListingField": "IsShortSale", "IsHidden": false }, { "FieldID": 29, "Group": "Feature", "SubGroup": "Waterfront", "FieldName": "River Front", "FieldValue": "R", "InQuickSearch": true, "ListingField": "IsRiverfront", "IsHidden": false }, { "FieldID": 30, "Group": "Feature", "SubGroup": "View", "FieldName": "River View", "FieldValue": "RV", "InQuickSearch": true, "ListingField": "IsRiverView", "IsHidden": false }, { "FieldID": 31, "Group": "Feature", "SubGroup": "View", "FieldName": "Mountain View", "FieldValue": "MV", "InQuickSearch": true, "ListingField": "IsMountainView", "IsHidden": false }, { "FieldID": 33, "Group": "Feature", "SubGroup": "Community Features", "FieldName": "Horse Property", "FieldValue": "HP", "InQuickSearch": true, "ListingField": "IsHorse", "IsHidden": false }, { "FieldID": 34, "Group": "PropType", "FieldName": "Shared Interest", "FieldValue": "SI", "InQuickSearch": true, "ListingField": "", "IsHidden": false }, { "FieldID": 111, "Group": "Feature", "SubGroup": "Waterfront", "FieldName": "Creek Front", "FieldValue": "ICF", "InQuickSearch": false, "ListingField": "IsCreekFront", "IsHidden": false }, { "FieldID": 114, "Group": "Feature", "SubGroup": "View", "FieldName": "Golf Course View", "FieldValue": "IGCV", "InQuickSearch": false, "ListingField": "IsGolfCourseView", "IsHidden": false }, { "FieldID": 117, "Group": "Feature", "SubGroup": "View", "FieldName": "Lake View", "FieldValue": "ILKV", "InQuickSearch": false, "ListingField": "IsLakeView", "IsHidden": false }, { "FieldID": 118, "Group": "Feature", "SubGroup": "View", "FieldName": "Landscape View", "FieldValue": "ILDSCV", "InQuickSearch": false, "ListingField": "IsLandscapeView", "IsHidden": false }, { "FieldID": 123, "Group": "Feature", "SubGroup": "View", "FieldName": "Wooded View", "FieldValue": "IWDV", "InQuickSearch": false, "ListingField": "IsWoodedView", "IsHidden": false }, { "FieldID": 128, "Group": "Feature", "SubGroup": "View", "FieldName": "Water View", "FieldValue": "IWTRV", "InQuickSearch": false, "ListingField": "IsWaterView", "IsHidden": false }, { "FieldID": 129, "Group": "Feature", "SubGroup": "Property Features", "FieldName": "InLaw Suite", "FieldValue": "HMTIL", "InQuickSearch": false, "ListingField": "HasMotherInLaw", "IsHidden": false }, { "FieldID": 130, "Group": "Feature", "SubGroup": "Style", "FieldName": "Cabin", "FieldValue": "ICABN", "InQuickSearch": false, "ListingField": "IsCabin", "IsHidden": false }, { "FieldID": 132, "Group": "Feature", "SubGroup": "Property Features", "FieldName": "Cul-De-Sac", "FieldValue": "ICDS", "InQuickSearch": false, "ListingField": "InCulDeSac", "IsHidden": false }, { "FieldID": 133, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Remodeled", "FieldValue": "IREMOD", "InQuickSearch": false, "ListingField": "IsRemodeled", "IsHidden": false }, { "FieldID": 134, "Group": "Feature", "SubGroup": "Exterior Features", "FieldName": "Carport", "FieldValue": "HCARP", "InQuickSearch": false, "ListingField": "HasCarport", "IsHidden": false }, { "FieldID": 136, "Group": "Feature", "SubGroup": "Exterior Features", "FieldName": "Fenced Yard", "FieldValue": "ISFENCE", "InQuickSearch": false, "ListingField": "IsFenced", "IsHidden": false }, { "FieldID": 137, "Group": "Feature", "SubGroup": "Exterior Features", "FieldName": "Pool - Below Ground", "FieldValue": "HPIGP", "InQuickSearch": false, "ListingField": "HasPrivateInGroundPool", "IsHidden": false }, { "FieldID": 138, "Group": "Feature", "SubGroup": "Exterior Features", "FieldName": "Pool - Above Ground", "FieldValue": "HPAGP", "InQuickSearch": false, "ListingField": "HasPrivateAboveGroundPool", "IsHidden": false }, { "FieldID": 139, "Group": "Feature", "SubGroup": "Community Features", "FieldName": "Community Pool", "FieldValue": "HCPOOL", "InQuickSearch": false, "ListingField": "HasCommunityPool", "IsHidden": false }, { "FieldID": 140, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Basement", "FieldValue": "HBASE", "InQuickSearch": false, "ListingField": "HasBasement", "IsHidden": false }, { "FieldID": 141, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Basement - Finished", "FieldValue": "HFBASE", "InQuickSearch": false, "ListingField": "HasFinishedBasement", "IsHidden": false }, { "FieldID": 142, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Basement - Unfinished", "FieldValue": "HUFBASE", "InQuickSearch": false, "ListingField": "HasUnfinishedBasement", "IsHidden": false }, { "FieldID": 143, "Group": "Feature", "SubGroup": "Community Features", "FieldName": "Adult Community", "FieldValue": "AGEREST", "InQuickSearch": false, "ListingField": "IsAgeRestricted", "IsHidden": false }, { "FieldID": 144, "Group": "Feature", "SubGroup": "Community Features", "FieldName": "Golf Community", "FieldValue": "GOLFC", "InQuickSearch": false, "ListingField": "InGolfCommunity", "IsHidden": false }, { "FieldID": 145, "Group": "Feature", "SubGroup": "Exterior Features", "FieldName": "Dock", "FieldValue": "HDOCK", "InQuickSearch": false, "ListingField": "HasDock", "IsHidden": false }, { "FieldID": 146, "Group": "Feature", "SubGroup": "Style", "FieldName": "Ranch \/ One Story", "FieldValue": "ISS", "InQuickSearch": false, "ListingField": "IsSingleStory", "IsHidden": false }, { "FieldID": 147, "Group": "PropType", "FieldName": "Commercial-Lease", "FieldValue": "CL", "InQuickSearch": true, "ListingField": "", "IsHidden": false }, { "FieldID": 150, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "No Basement", "FieldValue": "HNB", "InQuickSearch": false, "ListingField": "HasNoBasement", "IsHidden": false }, { "FieldID": 151, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Basement - Partially Finished", "FieldValue": "HPFB", "InQuickSearch": false, "ListingField": "HasPartiallyFinishedBasement", "IsHidden": false }, { "FieldID": 152, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Basement - Walk-Out", "FieldValue": "HWOB", "InQuickSearch": false, "ListingField": "HasWalkOutBasement", "IsHidden": false }, { "FieldID": 153, "Group": "Feature", "SubGroup": "Exterior Features", "FieldName": "Parking - RV \/ Boat", "FieldValue": "HBP", "InQuickSearch": false, "ListingField": "HasBoatParking", "IsHidden": false }, { "FieldID": 155, "Group": "Feature", "SubGroup": "Exterior Features", "FieldName": "Storage Buildings", "FieldValue": "HSB", "InQuickSearch": false, "ListingField": "HasStorageBuildings", "IsHidden": false }, { "FieldID": 157, "Group": "Feature", "SubGroup": "Style", "FieldName": "Patio Home", "FieldValue": "IPH", "InQuickSearch": false, "ListingField": "IsPatioHome", "IsHidden": false }, { "FieldID": 158, "Group": "Feature", "SubGroup": "Community Features", "FieldName": "Has HOA", "FieldValue": "HOA", "InQuickSearch": false, "ListingField": "HasHOA", "IsHidden": false }, { "FieldID": 159, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Main Floor Bedroom", "FieldValue": "HMFB", "InQuickSearch": false, "ListingField": "HasMainFloorBedroom", "IsHidden": false }, { "FieldID": 160, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Master Upstairs", "FieldValue": "MBU", "InQuickSearch": false, "ListingField": "IsMasterUp", "IsHidden": false }, { "FieldID": 163, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Granite Counters", "FieldValue": "HGC", "InQuickSearch": false, "ListingField": "HasGraniteCounters", "IsHidden": false }, { "FieldID": 164, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Hardwood Floors", "FieldValue": "HHF", "InQuickSearch": false, "ListingField": "HasHardwoodFloors", "IsHidden": false }, { "FieldID": 166, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Air Conditioning", "FieldValue": "HAC", "InQuickSearch": false, "ListingField": "HasAirConditioning", "IsHidden": false }, { "FieldID": 167, "Group": "Feature", "SubGroup": "Property Features", "FieldName": "Fixer-Upper", "FieldValue": "IFU", "InQuickSearch": false, "ListingField": "IsFixerUpper", "IsHidden": false }, { "FieldID": 196, "Group": "Feature", "SubGroup": "Not Title Status", "FieldName": "NOT Foreclosure or Bank-owned", "FieldValue": "NBO", "InQuickSearch": false, "ListingField": "IsBankOwned", "IsHidden": false }, { "FieldID": 197, "Group": "Feature", "SubGroup": "Not Title Status", "FieldName": "NOT Short Sale Listings", "FieldValue": "NSS", "InQuickSearch": false, "ListingField": "IsShortSale", "IsHidden": false }, { "FieldID": 201, "Group": "Feature", "SubGroup": "Financing", "FieldName": "VA Loan", "FieldValue": "VA", "InQuickSearch": false, "ListingField": "IsVAHome", "IsHidden": false }, { "FieldID": 205, "Group": "Feature", "SubGroup": "View", "FieldName": "Creek View", "FieldValue": "ICFV", "InQuickSearch": false, "ListingField": "IsCreekView", "IsHidden": false }, { "FieldID": 207, "Group": "Feature", "SubGroup": "Community Features", "FieldName": "No HOA", "FieldValue": "NHOA", "InQuickSearch": false, "ListingField": "IsNotHOA", "IsHidden": false }, { "FieldID": 208, "Group": "Feature", "SubGroup": "Financing", "FieldName": "Owner Financing", "FieldValue": "IOWNF", "InQuickSearch": false, "ListingField": "IsOwnerFinancing", "IsHidden": false }, { "FieldID": 209, "Group": "Feature", "SubGroup": "Financing", "FieldName": "FHA Loan", "FieldValue": "IFHA", "InQuickSearch": false, "ListingField": "IsFHA", "IsHidden": false }, { "FieldID": 211, "Group": "Feature", "SubGroup": "Exterior Features", "FieldName": "Garage - Attached", "FieldValue": "HAG", "InQuickSearch": false, "ListingField": "HasAttachedGarage", "IsHidden": false }, { "FieldID": 212, "Group": "Feature", "SubGroup": "Exterior Features", "FieldName": "Garage - Detached", "FieldValue": "HDC", "InQuickSearch": false, "ListingField": "HasDetachedGarage", "IsHidden": false }, { "FieldID": 217, "Group": "Feature", "SubGroup": "Property Features", "FieldName": "Public Water", "FieldValue": "IPW", "InQuickSearch": false, "ListingField": "IsPublicWater", "IsHidden": false }, { "FieldID": 218, "Group": "Feature", "SubGroup": "Property Features", "FieldName": "Sewer", "FieldValue": "IS", "InQuickSearch": false, "ListingField": "IsSewer", "IsHidden": false }, { "FieldID": 219, "Group": "Feature", "SubGroup": "Property Features", "FieldName": "Well", "FieldValue": "IW", "InQuickSearch": false, "ListingField": "IsWell", "IsHidden": false }, { "FieldID": 220, "Group": "Feature", "SubGroup": "Property Features", "FieldName": "Septic", "FieldValue": "ISP", "InQuickSearch": false, "ListingField": "IsSeptic", "IsHidden": false }, { "FieldID": 223, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Wet Bar", "FieldValue": "HWB", "InQuickSearch": false, "ListingField": "HasWetBar", "IsHidden": false }, { "FieldID": 224, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Walk-In Closet", "FieldValue": "HWIC", "InQuickSearch": false, "ListingField": "HasWalkInCloset", "IsHidden": false }, { "FieldID": 225, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Basement - View-Out", "FieldValue": "HVOB", "InQuickSearch": false, "ListingField": "HasViewOutBasement", "IsHidden": false }, { "FieldID": 226, "Group": "Feature", "SubGroup": "Exterior Features", "FieldName": "Sprinkler System", "FieldValue": "HSS", "InQuickSearch": false, "ListingField": "HasSprinklerSystem", "IsHidden": false }, { "FieldID": 227, "Group": "Feature", "SubGroup": "Exterior Features", "FieldName": "Deck", "FieldValue": "HD", "InQuickSearch": false, "ListingField": "HasDeck", "IsHidden": false }, { "FieldID": 228, "Group": "Feature", "SubGroup": "Exterior Features", "FieldName": "Patio", "FieldValue": "HPTO", "InQuickSearch": false, "ListingField": "HasPatio", "IsHidden": false }, { "FieldID": 229, "Group": "Feature", "SubGroup": "Exterior Features", "FieldName": "Hot Tub", "FieldValue": "HHT", "InQuickSearch": false, "ListingField": "HasHotTub", "IsHidden": false }, { "FieldID": 230, "Group": "Feature", "SubGroup": "Property Features", "FieldName": "Corner Lot", "FieldValue": "ICL", "InQuickSearch": false, "ListingField": "IsCornerLot", "IsHidden": false }, { "FieldID": 236, "Group": "Feature", "SubGroup": "Style", "FieldName": "Log \/ Log Look", "FieldValue": "ILOLL", "InQuickSearch": false, "ListingField": "IsLogOrLogLook", "IsHidden": false }, { "FieldID": 241, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Central Air Conditioning", "FieldValue": "HCA", "InQuickSearch": false, "ListingField": "HasCentralAir", "IsHidden": false }, { "FieldID": 266, "Group": "Feature", "SubGroup": "Financing", "FieldName": "Conventional Financing", "FieldValue": "CNF", "InQuickSearch": false, "ListingField": "IsConventional", "IsHidden": false }, { "FieldID": 267, "Group": "Feature", "SubGroup": "Financing", "FieldName": "Lease Purchase", "FieldValue": "LP", "InQuickSearch": false, "ListingField": "IsLeasePurchase", "IsHidden": false }, { "FieldID": 268, "Group": "Feature", "SubGroup": "Financing", "FieldName": "Lease Option", "FieldValue": "LO", "InQuickSearch": false, "ListingField": "IsLeaseOption", "IsHidden": false }, { "FieldID": 269, "Group": "Feature", "SubGroup": "Financing", "FieldName": "Trade\/Exchange", "FieldValue": "TE", "InQuickSearch": false, "ListingField": "IsTradeExchange", "IsHidden": false }, { "FieldID": 279, "Group": "Feature", "SubGroup": "Style", "FieldName": "1.5 Story", "FieldValue": "OHS", "InQuickSearch": false, "ListingField": "IsOneAndHalfStory", "IsHidden": false }, { "FieldID": 280, "Group": "Feature", "SubGroup": "Style", "FieldName": "Multi Level", "FieldValue": "ML", "InQuickSearch": false, "ListingField": "IsMultiLevel", "IsHidden": false }, { "FieldID": 281, "Group": "Feature", "SubGroup": "Style", "FieldName": "Split Foyer", "FieldValue": "SPF", "InQuickSearch": false, "ListingField": "IsSplitFoyer", "IsHidden": false }, { "FieldID": 282, "Group": "Feature", "SubGroup": "Style", "FieldName": "Two Story", "FieldValue": "TS", "InQuickSearch": false, "ListingField": "IsTwoStory", "IsHidden": false }, { "FieldID": 286, "Group": "Feature", "SubGroup": "Property Features", "FieldName": "Land - Leased", "FieldValue": "ILL", "InQuickSearch": false, "ListingField": "IsLandLeased", "IsHidden": false }, { "FieldID": 290, "Group": "Feature", "SubGroup": "Property Features", "FieldName": "Close to Public Transportation", "FieldValue": "PT", "InQuickSearch": false, "ListingField": "IsCloseToPubTrans", "IsHidden": false }, { "FieldID": 295, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Washer \/ Dryer In Unit", "FieldValue": "WD", "InQuickSearch": false, "ListingField": "HasWasherDryer", "IsHidden": false }, { "FieldID": 299, "Group": "Feature", "SubGroup": "Exterior Features", "FieldName": "Brick", "FieldValue": "BRC", "InQuickSearch": false, "ListingField": "IsBrick", "IsHidden": false }, { "FieldID": 303, "Group": "Feature", "SubGroup": "Style", "FieldName": "Twinhome", "FieldValue": "TW", "InQuickSearch": false, "ListingField": "IsTwinhome", "IsHidden": false }, { "FieldID": 305, "Group": "Feature", "SubGroup": "Exterior Features", "FieldName": "Block Construction", "FieldValue": "IBC", "InQuickSearch": false, "ListingField": "IsBlock", "IsHidden": false }, { "FieldID": 306, "Group": "Feature", "SubGroup": "Exterior Features", "FieldName": "Wood Construction", "FieldValue": "WC", "InQuickSearch": false, "ListingField": "IsWood", "IsHidden": false }, { "FieldID": 307, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Elevator", "FieldValue": "HE", "InQuickSearch": false, "ListingField": "HasElevator", "IsHidden": false }, { "FieldID": 317, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Heat - Gas", "FieldValue": "HEATG", "InQuickSearch": false, "ListingField": "IsGasHeat", "IsHidden": false }, { "FieldID": 318, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Heat - Electric", "FieldValue": "HEATE", "InQuickSearch": false, "ListingField": "IsElectricHeat", "IsHidden": false }, { "FieldID": 319, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Cooling - Evap", "FieldValue": "COOLE", "InQuickSearch": false, "ListingField": "IsEvapCooling", "IsHidden": false }, { "FieldID": 321, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Great Room", "FieldValue": "GRM", "InQuickSearch": false, "ListingField": "HasGreatRoom", "IsHidden": false }, { "FieldID": 323, "Group": "Feature", "SubGroup": "Financing", "FieldName": "Cash", "FieldValue": "CASH", "InQuickSearch": false, "ListingField": "IsCash", "IsHidden": false }, { "FieldID": 327, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Cathedral Ceiling", "FieldValue": "CATH", "InQuickSearch": false, "ListingField": "HasCathedralCeilling", "IsHidden": false }, { "FieldID": 328, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Formal Dining", "FieldValue": "FRMD", "InQuickSearch": false, "ListingField": "HasFormalDining", "IsHidden": false }, { "FieldID": 329, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Loft", "FieldValue": "LFT", "InQuickSearch": false, "ListingField": "HasLoft", "IsHidden": false }, { "FieldID": 336, "Group": "Feature", "SubGroup": "Property Features", "FieldName": "Paved Street", "FieldValue": "PVDS", "InQuickSearch": false, "ListingField": "IsPavedStreet", "IsHidden": false }, { "FieldID": 338, "Group": "Feature", "SubGroup": "View", "FieldName": "Canyon View", "FieldValue": "CYNVW", "InQuickSearch": false, "ListingField": "IsCanyonView", "IsHidden": false }, { "FieldID": 341, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Pantry", "FieldValue": "PNTRY", "InQuickSearch": false, "ListingField": "HasPantry", "IsHidden": false }, { "FieldID": 342, "Group": "Feature", "SubGroup": "Exterior Features", "FieldName": "Porch", "FieldValue": "PRCH", "InQuickSearch": false, "ListingField": "HasPorch", "IsHidden": false }, { "FieldID": 348, "Group": "Feature", "SubGroup": "Exterior Features", "FieldName": "Guest House", "FieldValue": "GHOUS", "InQuickSearch": false, "ListingField": "HasGuestHouse", "IsHidden": false }, { "FieldID": 355, "Group": "Feature", "SubGroup": "Exterior Features", "FieldName": "Workshop", "FieldValue": "WKSHP", "InQuickSearch": false, "ListingField": "HasWorkshop", "IsHidden": false }, { "FieldID": 356, "Group": "Feature", "SubGroup": "Financing", "FieldName": "USDA", "FieldValue": "USDAF", "InQuickSearch": false, "ListingField": "IsUSDA", "IsHidden": false }, { "FieldID": 358, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Bonus Room", "FieldValue": "BNROM", "InQuickSearch": false, "ListingField": "HasBonusRoom", "IsHidden": false }, { "FieldID": 359, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Carpet Floors", "FieldValue": "CPTFL", "InQuickSearch": false, "ListingField": "IsCarpetFloor", "IsHidden": false }, { "FieldID": 360, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Gas Oven", "FieldValue": "GOVEN", "InQuickSearch": false, "ListingField": "HasGasOven", "IsHidden": false }, { "FieldID": 361, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Main Floor Laundry", "FieldValue": "MFL", "InQuickSearch": false, "ListingField": "HasMainFloorLaundry", "IsHidden": false }, { "FieldID": 363, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Tile Floors", "FieldValue": "TLF", "InQuickSearch": false, "ListingField": "IsTileFloor", "IsHidden": false }, { "FieldID": 368, "Group": "Feature", "SubGroup": "Property Features", "FieldName": "Propane Utilities", "FieldValue": "PU", "InQuickSearch": false, "ListingField": "IsPropane", "IsHidden": false }, { "FieldID": 388, "Group": "Feature", "SubGroup": "Exterior Features", "FieldName": "RV Garage", "FieldValue": "RVG", "InQuickSearch": false, "ListingField": "HasRVGarage", "IsHidden": false }, { "FieldID": 390, "Group": "Feature", "SubGroup": "Exterior Features", "FieldName": "Stucco", "FieldValue": "STUC", "InQuickSearch": false, "ListingField": "IsStucco", "IsHidden": false }, { "FieldID": 1301, "Group": "Feature", "SubGroup": "Exterior Features", "FieldName": "Barn", "FieldValue": "HB", "InQuickSearch": false, "ListingField": "HasBarn", "IsHidden": false }, { "FieldID": 2329, "Group": "Feature", "SubGroup": "Property Features", "FieldName": "Not in Flood Zone", "FieldValue": "NOFL", "InQuickSearch": false, "ListingField": "IsNotFloodZone", "IsHidden": false }, { "FieldID": 2335, "Group": "Feature", "SubGroup": "Interior Features", "FieldName": "Heat - Oil", "FieldValue": "HEATO", "InQuickSearch": false, "ListingField": "IsOilHeat", "IsHidden": false }], "searchFieldsCondensed": { "expandedproptypes": { "SF": { "key": "SF", "DDName": "Homes (Single Family)", "TagName": "Homes", "last": false }, "C": { "key": "C", "DDName": "Condos", "TagName": "Condos", "last": false }, "VT": { "key": "VT", "DDName": "Townhouses", "TagName": "Townhouses", "last": false }, "VC": { "key": "VC", "DDName": "Land & Lots", "TagName": "Land & Lots", "last": false }, "M": { "key": "M", "DDName": "Manufactured Home", "TagName": "Manufactured Home", "last": false }, "MF": { "key": "MF", "DDName": "Multi-Family", "TagName": "Multi-Family", "last": false }, "CM": { "key": "CM", "DDName": "Commercial", "TagName": "Commercial", "last": false }, "RN": { "key": "RN", "DDName": "Rentals", "TagName": "Rentals", "last": false }, "FM": { "key": "FM", "DDName": "Farm", "TagName": "Farm", "last": false }, "SI": { "key": "SI", "DDName": "Shared Interest", "TagName": "Shared Interest", "last": false }, "CL": { "key": "CL", "DDName": "Commercial-Lease", "TagName": "Commercial-Lease", "last": true } }, "features": { "Community Features": { "Adult Community": "AGEREST", "Community Pool": "HCPOOL", "Gated Community": "GT", "Golf Community": "GOLFC", "Has HOA": "HOA", "Horse Property": "HP", "No HOA": "NHOA" }, "Property Features": { "Close to Public Transportation": "PT", "Corner Lot": "ICL", "Cul-De-Sac": "ICDS", "Fixer-Upper": "IFU", "Green \/ LEED": "G", "Handicap Equipped": "HC", "Historic Property": "H", "InLaw Suite": "HMTIL", "Land - Leased": "ILL", "New Construction": "N", "Not in Flood Zone": "NOFL", "On Golf Course": "GC", "Paved Street": "PVDS", "Propane Utilities": "PU", "Public Water": "IPW", "Septic": "ISP", "Sewer": "IS", "Well": "IW" }, "Waterfront": { "Creek Front": "ICF", "Lake Front": "L", "River Front": "R", "Waterfront": "W" }, "View": { "Canyon View": "CYNVW", "Creek View": "ICFV", "Golf Course View": "IGCV", "Lake View": "ILKV", "Landscape View": "ILDSCV", "Mountain View": "MV", "River View": "RV", "Water View": "IWTRV", "Wooded View": "IWDV" }, "Exterior Features": { "Barn": "HB", "Block Construction": "IBC", "Brick": "BRC", "Carport": "HCARP", "Deck": "HD", "Dock": "HDOCK", "Fenced Yard": "ISFENCE", "Garage": "GR", "Garage - Attached": "HAG", "Garage - Detached": "HDC", "Guest House": "GHOUS", "Hot Tub": "HHT", "Parking - RV \/ Boat": "HBP", "Patio": "HPTO", "Pool": "P", "Pool - Above Ground": "HPAGP", "Pool - Below Ground": "HPIGP", "Porch": "PRCH", "RV Garage": "RVG", "Sprinkler System": "HSS", "Storage Buildings": "HSB", "Stucco": "STUC", "Wood Construction": "WC", "Workshop": "WKSHP" }, "Interior Features": { "Air Conditioning": "HAC", "Basement": "HBASE", "Basement - Finished": "HFBASE", "Basement - Partially Finished": "HPFB", "Basement - Unfinished": "HUFBASE", "Basement - View-Out": "HVOB", "Basement - Walk-Out": "HWOB", "Bonus Room": "BNROM", "Carpet Floors": "CPTFL", "Cathedral Ceiling": "CATH", "Central Air Conditioning": "HCA", "Cooling - Evap": "COOLE", "Elevator": "HE", "Fireplace": "F", "Formal Dining": "FRMD", "Gas Oven": "GOVEN", "Granite Counters": "HGC", "Great Room": "GRM", "Hardwood Floors": "HHF", "Heat - Electric": "HEATE", "Heat - Gas": "HEATG", "Heat - Oil": "HEATO", "Loft": "LFT", "Main Floor Bedroom": "HMFB", "Main Floor Laundry": "MFL", "Master Downstairs": "MD", "Master Upstairs": "MBU", "No Basement": "HNB", "Pantry": "PNTRY", "Remodeled": "IREMOD", "Tile Floors": "TLF", "Walk-In Closet": "HWIC", "Washer \/ Dryer In Unit": "WD", "Wet Bar": "HWB" }, "Style": { "1.5 Story": "OHS", "Cabin": "ICABN", "Log \/ Log Look": "ILOLL", "Multi Level": "ML", "Patio Home": "IPH", "Ranch \/ One Story": "ISS", "Split Foyer": "SPF", "Twinhome": "TW", "Two Story": "TS" }, "Financing": { "Cash": "CASH", "Conventional Financing": "CNF", "FHA Loan": "IFHA", "Lease Option": "LO", "Lease Purchase": "LP", "Owner Financing": "IOWNF", "Trade\/Exchange": "TE", "USDA": "USDAF", "VA Loan": "VA" }, "popular": { "Waterfront": "W", "New Construction": "N", "Garage": "GR", "Pool": "P", "Fireplace": "F", "Master Downstairs": "MD", "Remodeled": "IREMOD", "Basement": "HBASE" } }, "locations": [{ "Value": 125110, "Name": "Boise" }, { "Value": 125111, "Name": "Boise County" }, { "Value": 125112, "Name": "Caldwell" }, { "Value": 125113, "Name": "Eagle" }, { "Value": 125114, "Name": "Idaho Falls" }, { "Value": 125115, "Name": "Kuna" }, { "Value": 125116, "Name": "McCall" }, { "Value": 125117, "Name": "Meridian" }, { "Value": 125118, "Name": "Nampa" }, { "Value": 125119, "Name": "Twin Falls" }], "year": [2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2000, 1995, 1990, 1980, 1970, 1960, 1950, 1940, 1930, 1920, 1900, 1850, 1800, 1750] }, "menuItems": [{ "id": 7, "url": "\/", "title": "Home", "parent": 0 }, { "id": 8, "url": "\/results\/", "title": "Search", "parent": 0 }, { "id": 9, "url": "\/agents\/", "title": "Agents", "parent": 8 }, { "id": 10, "url": "\/results-map\/", "title": "Map Search", "parent": 8 }, { "id": 11, "url": "\/results-gallery\/?userID=all", "title": "Our Listings", "parent": 8 }, { "id": 12, "url": "\/buy\/", "title": "Buying", "parent": 0 }, { "id": 13, "url": "\/finance\/", "title": "Financing", "parent": 0 }, { "id": 14, "url": "\/sell\/", "title": "Selling", "parent": 0 }, { "id": 15, "url": "\/sell\/", "title": "Sell Your Home", "parent": 14 }, { "id": 16, "url": "\/home-valuation\/", "title": "What's My Home Worth?", "parent": 14 }, { "id": 17, "url": "\/resources\/", "title": "Resources", "parent": 0 }, { "id": 18, "url": "\/blog\/", "title": "Blog", "parent": 17 }, { "id": 19, "url": "\/guides\/", "title": "Community Guides", "parent": 17 }, { "id": 20, "url": "\/resources\/", "title": "Additional Resources", "parent": 17 }, { "id": 21, "url": "\/contactus\/", "title": "Contact Us", "parent": 0 }] };
+        var flagship_theme = { "svgSpritePath": "https:\/\/bt-wpstatic.freetls.fastly.net\/wp-content\/themes\/wp-base-theme\/assets\/svg\/build\/sprite-1f95a4e833.svg" };
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='https://bt-wpstatic.freetls.fastly.net/wp-content/themes/wp-base-theme/assets/js/build/components.2bcf4357.min.js' id='bt_pt-components-js'></script>
+    <script type='text/javascript' src='https://bt-wpstatic.freetls.fastly.net/wp-content/themes/wp-base-theme/assets/js/build/home.3810696c.min.js' id='bt_pt-home-js'></script>
+    <script type='text/javascript' src='https://bt-wpstatic.freetls.fastly.net/wp-includes/js/wp-embed.min.js' id='wp-embed-js'></script>
+    <script type="text/javascript">window.NREUM || (NREUM = {}); NREUM.info = { "beacon": "bam-cell.nr-data.net", "licenseKey": "7bce71ab19", "applicationID": "15738311", "transactionName": "ZlUBbRBSXUNSAhVQV18fIloWWlxeHAcTVlZFHRNYBVY=", "queueTime": 0, "applicationTime": 242, "atts": "ShIWG1hIThwRAEMDQ0xN", "errorBeacon": "bam-cell.nr-data.net", "agent": "" }</script>
+</body>
+</html>
