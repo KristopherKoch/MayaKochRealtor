@@ -8,27 +8,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover" />
 
     <script type="text/javascript">
-        (function (history) {
-            var pushState = history.pushState;
-            history.pushState = function (state) {
-                if (typeof history.onpushstate == "function") {
-                    history.onpushstate({ state: state });
-                }
-                return pushState.apply(history, arguments);
+        // Add this:
+        var _wr = function (type) {
+            var orig = history[type];
+            return function () {
+                var rv = orig.apply(this, arguments);
+                var e = new Event(type);
+                e.arguments = arguments;
+                window.dispatchEvent(e);
+                return rv;
             };
-        })(window.history);
+        };
+        history.pushState = _wr('pushState'), history.replaceState = _wr('replaceState');
 
-
-        window.onpopstate = history.onpushstate = function (e)
-        {
-            //console.info("THEY DID IT AGAIN");
-            setTimeout(function () { redirect_func(); }, 200);
-        }
-
-        var redirect_func = function () {
-            var url = location.href;
-            window.location = url;
-        }
+        // Use it like this:
+        window.addEventListener('replaceState', function (e) {
+            console.warn('THEY DID IT AGAIN!');
+        });
     </script>
 
     <script src="~/js/firebase.js"></script>
