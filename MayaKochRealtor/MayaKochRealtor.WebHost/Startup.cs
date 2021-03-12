@@ -41,7 +41,7 @@ namespace MayaKochRealtor.WebHost
                 app.UseHsts();
             }
 
-            var options = new RewriteOptions().AddRedirect("results-gallery/(.*)", "/").AddRedirect("listing/(.*)", "/");
+            var options = new RewriteOptions().AddRedirect("results-gallery/.*", "/").AddRedirect("listing/.*", "/");
 
             app.UseRewriter(options);
             app.UseHttpsRedirection();
