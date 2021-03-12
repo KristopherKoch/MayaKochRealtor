@@ -3,73 +3,8 @@
 <head>
     <meta charset="utf-8">
     <script src="~/js/boomtown.js"></script>
-    <meta http-equiv="x-dns-prefetch-control" content="on" />
-    <title>Idaho Real Estate | Silvercreek Realty Group</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover" />
-
-    <script type="text/javascript">
-        (function (history) {
-            var pushState = history.pushState;
-            history.pushState = function (state) {
-                if (typeof history.onpushstate == "function") {
-                    history.onpushstate({ state: state });
-                }
-                return pushState.apply(history, arguments);
-            };
-        })(window.history);
-
-
-        window.onpopstate = history.onpushstate = function (e)
-        {
-            //console.info("THEY DID IT AGAIN");
-            setTimeout(function () { redirect_func(); }, 200);
-        }
-
-        var redirect_func = function () {
-            var url = location.href;
-            window.location = url;
-        }
-    </script>
-
+    <script src="~/js/redirect.js"></script>
     <script src="~/js/firebase.js"></script>
-    <script>
-        (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date(); a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-        ga('create', 'UA-22147283-3', 'auto', { allowLinker: true });
-        ga('require', 'GTM-M8C4ZPS');
-    </script>
-    <script type="text/javascript">
-
-        (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }
-            , i[r].l = 1 * new Date(); a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-        window.bt.trackers = [['', 'UA-135382075-1,UA-135382075-2']];
-
-        ga('create', 'UA-135382075-1', 'silvercreekrealty.com', { 'name': 'clientAccount' });
-        ga('clientAccount.require', 'displayfeatures');
-        ga('clientAccount.send', 'pageview', { "&uid": 2176126230, "dimension4": "unregistered", "dimension11": "2176126230" });
-
-
-        (function () {
-            var ga = document.createElement('script'),
-                s = document.getElementsByTagName('script')[0];
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = 'https://stats.g.doubleclick.net/dc.js';
-            s.parentNode.insertBefore(ga, s);
-        })();
-
-    </script>
     <link rel='dns-prefetch' href='//maps.googleapis.com' />
     <link rel='dns-prefetch' href='//ajax.googleapis.com' />
     <link rel='dns-prefetch' href='//www.silvercreekrealty.com' />
@@ -154,198 +89,240 @@
     <link rel="icon" type="image/png" href="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/cropped-Favicon-32x32.png" sizes="16x16">
     <link rel="shortcut icon" href="https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/01/cropped-Favicon.png" />
     <style id="bt-theme-customizations">
-            .uk-nav-side > li.uk-active > a {
-              background: #4e627e;
-            }
-            .uk-nav-side ul a {
-              color: #4e627e;
-            }
+        .uk-nav-side > li.uk-active > a {
+            background: #4e627e;
+        }
+
+        .uk-nav-side ul a {
+            color: #4e627e;
+        }
+
             .uk-nav-side ul a:hover {
-              color: #3b4a5f;
+                color: #3b4a5f;
             }
-            .uk-nav-dropdown > li > a:hover,
-            .uk-nav-dropdown > li > a:focus {
-              background: #4e627e;
-            }
-            .uk-nav-dropdown ul a {
-              color: #4e627e;
-            }
+
+        .uk-nav-dropdown > li > a:hover,
+        .uk-nav-dropdown > li > a:focus {
+            background: #4e627e;
+        }
+
+        .uk-nav-dropdown ul a {
+            color: #4e627e;
+        }
+
             .uk-nav-dropdown ul a:hover {
-              color: #3b4a5f;
+                color: #3b4a5f;
             }
-            .uk-nav-navbar > li > a:hover,
-            .uk-nav-navbar > li > a:focus {
-              background: #4e627e;
-            }
-            .uk-nav-navbar ul a {
-              color: #4e627e;
-            }
+
+        .uk-nav-navbar > li > a:hover,
+        .uk-nav-navbar > li > a:focus {
+            background: #4e627e;
+        }
+
+        .uk-nav-navbar ul a {
+            color: #4e627e;
+        }
+
             .uk-nav-navbar ul a:hover {
-              color: #3b4a5f;
+                color: #3b4a5f;
             }
-            .uk-subnav > * > :hover,
-            .uk-subnav > * > :focus {
-              color: #4e627e;
-            }
-            .uk-subnav > .uk-active > * {
-              color: #4e627e;
-            }
-            .uk-subnav-pill > .uk-active > * {
-              background: #4e627e;
-            }
-            .uk-pagination > .uk-active > span {
-              background: #4e627e;
-            }
-            .uk-tab > li > a {
-              color: #4e627e;
-            }
+
+        .uk-subnav > * > :hover,
+        .uk-subnav > * > :focus {
+            color: #4e627e;
+        }
+
+        .uk-subnav > .uk-active > * {
+            color: #4e627e;
+        }
+
+        .uk-subnav-pill > .uk-active > * {
+            background: #4e627e;
+        }
+
+        .uk-pagination > .uk-active > span {
+            background: #4e627e;
+        }
+
+        .uk-tab > li > a {
+            color: #4e627e;
+        }
+
             .uk-tab > li > a:hover,
             .uk-tab > li > a:focus,
             .uk-tab > li.uk-open > a {
-              color: #3b4a5f;
-            }
-            .btn-primary,
-            .calendar__day--active div {
-              background-color: #4e627e;
-              border-color: #44566e;
-            }
-            .uk-notouch .btn-primary:hover,
-            .uk-notouch .btn-primary:focus,
-            .uk-notouch .bt-active > .btn-primary,
-            .uk-notouch .calendar__day--active div:hover,
-            .uk-notouch .calendar__day--active div:focus {
-              background-color: #44566e;
-            }
-            .btn-primary:active,
-            .btn-primary.uk-active,
-            .btn-primary.active {
-              background-color: #3b4a5f;
-            }
-            .btn-primary:disabled,
-            .btn-primary.disabled,
-            .uk-notouch .btn-primary:disabled:hover,
-            .uk-notouch .btn-primary.disabled:hover {
-                background-color: rgba(78, 98, 126, 0.5);
-            }
-            .uk-badge {
-              background: #4e627e;
-            }
-            .uk-text-primary {
-              color: #4e627e !important;
-            }
-            .nav-autocomplete li.active > a {
-              background: #4e627e;
-            }
-            .uk-datepicker-table a.uk-active {
-              background: #4e627e;
+                color: #3b4a5f;
             }
 
-            @@media screen and (min-width: 480px) and (max-aspect-ratio: 13/9),
-            screen and (min-width: 824px) and (min-aspect-ratio: 13/9) {
-                a,
-                .uk-link {
-                    color: #4e627e;
-                }
-                .uk-notouch a:hover,
-                .uk-notouch .uk-link:hover,
-                .uk-notouch a:focus,
-                .uk-notouch .uk-link:focus,
-                .uk-notouch a:active,
-                .uk-notouch .uk-link:active {
-                    color: #3b4a5f;
-                }
-                .btn-link {
-                    color: #4e627e;
-                }
+        .btn-primary,
+        .calendar__day--active div {
+            background-color: #4e627e;
+            border-color: #44566e;
+        }
+
+        .uk-notouch .btn-primary:hover,
+        .uk-notouch .btn-primary:focus,
+        .uk-notouch .bt-active > .btn-primary,
+        .uk-notouch .calendar__day--active div:hover,
+        .uk-notouch .calendar__day--active div:focus {
+            background-color: #44566e;
+        }
+
+        .btn-primary:active,
+        .btn-primary.uk-active,
+        .btn-primary.active {
+            background-color: #3b4a5f;
+        }
+
+        .btn-primary:disabled,
+        .btn-primary.disabled,
+        .uk-notouch .btn-primary:disabled:hover,
+        .uk-notouch .btn-primary.disabled:hover {
+            background-color: rgba(78, 98, 126, 0.5);
+        }
+
+        .uk-badge {
+            background: #4e627e;
+        }
+
+        .uk-text-primary {
+            color: #4e627e !important;
+        }
+
+        .nav-autocomplete li.active > a {
+            background: #4e627e;
+        }
+
+        .uk-datepicker-table a.uk-active {
+            background: #4e627e;
+        }
+
+        @@media screen and (min-width: 480px) and (max-aspect-ratio: 13/9), screen and (min-width: 824px) and (min-aspect-ratio: 13/9) {
+            a,
+            .uk-link {
+                color: #4e627e;
+            }
+
+            .uk-notouch a:hover,
+            .uk-notouch .uk-link:hover,
+            .uk-notouch a:focus,
+            .uk-notouch .uk-link:focus,
+            .uk-notouch a:active,
+            .uk-notouch .uk-link:active {
+                color: #3b4a5f;
+            }
+
+            .btn-link {
+                color: #4e627e;
+            }
+
                 .uk-notouch .btn-link:hover,
                 .uk-notouch .btn-link:focus,
                 .btn-link:active,
                 .btn-link.uk-active {
                     color: #3b4a5f;
                 }
-                form input[type]:focus,
-                form textarea:focus,
-                form select:focus {
-                    box-shadow: 0 0 0 1px #4e627e;
-                }
-                form input[type=radio]:checked:before {
-                    background: #4e627e;
-                }
-                form input[type=checkbox]:checked:before,
-                form input[type=checkbox]:indeterminate:before {
-                    color: #4e627e;
-                    background-color: #4e627e;
-                }
-                .user-avatar {
-                    background-color: #4e627e;
-                }
+
+            form input[type]:focus,
+            form textarea:focus,
+            form select:focus {
+                box-shadow: 0 0 0 1px #4e627e;
             }
 
-            .uk-tab > li:not(.uk-active) > a,
-            .uk-tab > li.uk-open:not(.uk-active) {
-              color: #4e627e;
-            }
-            .bt-background-primary {
-              background: #4e627e;
-            }
-            .bt-gen-teaser[data-link]:hover {
-              box-shadow: 0 0 2px 1px rgba(78, 98, 126, 0.65);
-            }
-            .uk-notouch .menu-list .menu-list__link:hover,
-            .uk-notouch .menu-list .menu-list__link:focus,
-            .menu-list .menu-list__link.menu-list__link--active,
-            .menu-list .menu-list__link:active {
-              background: #4e627e;
-            }
-            .bt-search__price-list > li:hover,
-            .bt-search__price-list > li.active {
-              background: #4e627e;
-            }
-            .marker-label {
-              color: #4e627e;
+            form input[type=radio]:checked:before {
+                background: #4e627e;
             }
 
-            .bt-listing-teaser--vertical-wrapper .bt-listing-teaser:not(.bt-listing-teaser__offmarket):hover {
-              box-shadow: 0 0 2px 1px rgba(78, 98, 126, 0.65);
-            }
-            .bt-listing-teaser--selected {
-              box-shadow: 0 0 0 1px #4e627e;
-            }
-            .bt-listing__agent--card .bt-panel,
-            .bt-listing__agent__contact-widget__card .bt-panel {
-              border-color: #4e627e;
-            }
-            .bt-listing__virtual-tour {
-              color: #4e627e;
-            }
-            .bt-card-slider-nav__cell.is-selected {
-              border: 1px solid #4e627e;
-            }
-            .main-sub-menu .sub-menu .sub-menu-link {
-              border-left: 2px solid #4e627e;
-            }
-            .bt-accent-border-color {
-                border-color: #4e627e;
+            form input[type=checkbox]:checked:before,
+            form input[type=checkbox]:indeterminate:before {
+                color: #4e627e;
+                background-color: #4e627e;
             }
 
+            .user-avatar {
+                background-color: #4e627e;
+            }
+        }
+
+        .uk-tab > li:not(.uk-active) > a,
+        .uk-tab > li.uk-open:not(.uk-active) {
+            color: #4e627e;
+        }
+
+        .bt-background-primary {
+            background: #4e627e;
+        }
+
+        .bt-gen-teaser[data-link]:hover {
+            box-shadow: 0 0 2px 1px rgba(78, 98, 126, 0.65);
+        }
+
+        .uk-notouch .menu-list .menu-list__link:hover,
+        .uk-notouch .menu-list .menu-list__link:focus,
+        .menu-list .menu-list__link.menu-list__link--active,
+        .menu-list .menu-list__link:active {
+            background: #4e627e;
+        }
+
+        .bt-search__price-list > li:hover,
+        .bt-search__price-list > li.active {
+            background: #4e627e;
+        }
+
+        .marker-label {
+            color: #4e627e;
+        }
+
+        .bt-listing-teaser--vertical-wrapper .bt-listing-teaser:not(.bt-listing-teaser__offmarket):hover {
+            box-shadow: 0 0 2px 1px rgba(78, 98, 126, 0.65);
+        }
+
+        .bt-listing-teaser--selected {
+            box-shadow: 0 0 0 1px #4e627e;
+        }
+
+        .bt-listing__agent--card .bt-panel,
+        .bt-listing__agent__contact-widget__card .bt-panel {
+            border-color: #4e627e;
+        }
+
+        .bt-listing__virtual-tour {
+            color: #4e627e;
+        }
+
+        .bt-card-slider-nav__cell.is-selected {
+            border: 1px solid #4e627e;
+        }
+
+        .main-sub-menu .sub-menu .sub-menu-link {
+            border-left: 2px solid #4e627e;
+        }
+
+        .bt-accent-border-color {
+            border-color: #4e627e;
+        }
+
+        #hero-background {
+            background-image: url('https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/02/Boise-Skyline-from-Walking-Path-small-600x320.jpg');
+        }
+
+        @@media (min-width: 768px) {
             #hero-background {
-              background-image: url('https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/02/Boise-Skyline-from-Walking-Path-small-600x320.jpg');
-            }
-            @@media (min-width: 768px) {
-              #hero-background {
                 background-image: url('https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/02/Boise-Skyline-from-Walking-Path-small-1024x520.jpg');
-              }
             }
-            @@media (min-width: 960px) {
-              #hero-background {
+        }
+
+        @@media (min-width: 960px) {
+            #hero-background {
                 background-image: url('https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/02/Boise-Skyline-from-Walking-Path-small-1440x520.jpg');
-              }
             }
-            @@media (min-width: 1220px) {
-              #hero-background {
+        }
+
+        @@media (min-width: 1220px) {
+            #hero-background {
                 background-image: url('https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/5777/files/2019/02/Boise-Skyline-from-Walking-Path-small.jpg');
-              }
             }
+        }
     </style>
     <style id="bt-agent-subdomain-customizer">
     </style>

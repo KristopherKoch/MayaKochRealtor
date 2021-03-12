@@ -41,7 +41,7 @@ namespace MayaKochRealtor.WebHost
                 app.UseHsts();
             }
 
-            var options = new RewriteOptions().AddRedirect("results-gallery/(.*)", "https://mayakoch.silvercreekrealty.com/results-gallery/$1");
+            var options = new RewriteOptions().AddRedirect("results-gallery/(.*)", "/").AddRedirect("listing/(.*)", "/");
 
             app.UseRewriter(options);
             app.UseHttpsRedirection();
